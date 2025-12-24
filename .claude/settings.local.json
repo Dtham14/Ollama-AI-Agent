@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(python:*)",
+      "Bash(.venvScriptspython.exe -m pip install --upgrade pip)",
+      "Bash(.venv/Scripts/python.exe -m pip:*)",
+      "Bash(ollama list:*)",
+      "Bash(npm create:*)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(npx tailwindcss:*)",
+      "Bash(../.venv/Scripts/python.exe:*)",
+      "Bash(npm run dev:*)"
+    ]
+  }
+}
