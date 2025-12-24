@@ -10,6 +10,8 @@ interface SessionState {
   // Actions
   loadSessions: () => Promise<void>;
   createSession: (title?: string, modelName?: string) => Promise<Session>;
+  updateSession: (sessionId: string, title: string) => Promise<void>;
+  deleteSession: (sessionId: string) => Promise<void>;
   refreshSessions: () => Promise<void>;
 }
 
@@ -45,6 +47,34 @@ export const useSessionStore = create<SessionState>((set) => ({
       throw error;
     } finally {
       set({ isLoading: false });
+    }
+  },
+
+  updateSession: async (sessionId, title) => {
+    try {
+      const updatedSession = await sessionApi.updateSession(sessionId, title);
+      set((state) => ({
+        sessions: state.sessions.map((s) =>
+          s.id === sessionId ? updatedSession : s
+        ),
+      }));
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Failed to update session';
+      set({ error: errorMessage });
+      throw error;
+    }
+  },
+
+  deleteSession: async (sessionId) => {
+    try {
+      await sessionApi.deleteSession(sessionId);
+      set((state) => ({
+        sessions: state.sessions.filter((s) => s.id !== sessionId),
+      }));
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Failed to delete session';
+      set({ error: errorMessage });
+      throw error;
     }
   },
 

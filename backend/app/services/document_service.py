@@ -138,7 +138,7 @@ class DocumentService:
                         "total_chunks": len(langchain_docs),
                         "document_id": document.id,
                         "user_uploaded": True,
-                        "tags": document.tags
+                        "tags": ",".join(document.tags) if document.tags else ""
                     })
 
             # Add to vector store

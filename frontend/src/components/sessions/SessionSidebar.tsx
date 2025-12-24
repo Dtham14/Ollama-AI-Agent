@@ -1,12 +1,14 @@
 import React from 'react';
-import { Plus, MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Plus, MessageSquare, ChevronLeft, ChevronRight, Trash2, Edit2, Check, X } from 'lucide-react';
 import { useSessionStore, useChatStore } from '../../stores';
 import { cn } from '../../utils/cn';
 
 export const SessionSidebar: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(true);
-  const { sessions, loadSessions, createSession } = useSessionStore();
-  const { currentSessionId, loadHistory, clearMessages } = useChatStore();
+  const [editingId, setEditingId] = React.useState<string | null>(null);
+  const [editTitle, setEditTitle] = React.useState('');
+  const { sessions, loadSessions, createSession, updateSession, deleteSession } = useSessionStore();
+  const { currentSessionId, loadHistory, clearMessages, setCurrentSession } = useChatStore();
 
   React.useEffect(() => {
     loadSessions();
@@ -18,6 +20,50 @@ export const SessionSidebar: React.FC = () => {
 
   const handleSelectSession = async (sessionId: string) => {
     await loadHistory(sessionId);
+  };
+
+  const handleDeleteSession = async (sessionId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!confirm('Are you sure you want to delete this conversation?')) {
+      return;
+    }
+
+    try {
+      await deleteSession(sessionId);
+      // If we deleted the current session, clear the chat
+      if (currentSessionId === sessionId) {
+        clearMessages();
+      }
+    } catch (error) {
+      alert('Failed to delete conversation. Please try again.');
+    }
+  };
+
+  const handleStartEdit = (sessionId: string, currentTitle: string | null, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setEditingId(sessionId);
+    setEditTitle(currentTitle || 'New Conversation');
+  };
+
+  const handleSaveEdit = async (sessionId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!editTitle.trim()) {
+      alert('Title cannot be empty');
+      return;
+    }
+
+    try {
+      await updateSession(sessionId, editTitle.trim());
+      setEditingId(null);
+    } catch (error) {
+      alert('Failed to update title. Please try again.');
+    }
+  };
+
+  const handleCancelEdit = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setEditingId(null);
+    setEditTitle('');
   };
 
   const formatDate = (dateString: string) => {
@@ -62,26 +108,87 @@ export const SessionSidebar: React.FC = () => {
               ) : (
                 <div className="p-2 space-y-1">
                   {sessions.map((session) => (
-                    <button
+                    <div
                       key={session.id}
-                      onClick={() => handleSelectSession(session.id)}
                       className={cn(
-                        'w-full flex items-start gap-2 p-3 rounded-lg text-left transition-colors',
+                        'w-full flex items-start gap-2 p-3 rounded-lg transition-colors group',
                         currentSessionId === session.id
                           ? 'bg-gray-700'
                           : 'hover:bg-gray-800'
                       )}
                     >
-                      <MessageSquare size={16} className="mt-1 flex-shrink-0" />
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm truncate">
-                          {session.title || 'New Conversation'}
-                        </p>
-                        <p className="text-xs text-gray-400">
-                          {formatDate(session.updated_at)} · {session.message_count} messages
-                        </p>
+                      <button
+                        onClick={() => handleSelectSession(session.id)}
+                        className="flex items-start gap-2 flex-1 min-w-0 text-left"
+                      >
+                        <MessageSquare size={16} className="mt-1 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          {editingId === session.id ? (
+                            <input
+                              type="text"
+                              value={editTitle}
+                              onChange={(e) => setEditTitle(e.target.value)}
+                              onClick={(e) => e.stopPropagation()}
+                              className="w-full text-sm bg-gray-600 text-white px-2 py-1 rounded border border-gray-500 focus:outline-none focus:border-blue-500"
+                              autoFocus
+                              onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                  handleSaveEdit(session.id, e as any);
+                                } else if (e.key === 'Escape') {
+                                  handleCancelEdit(e as any);
+                                }
+                              }}
+                            />
+                          ) : (
+                            <p className="text-sm truncate">
+                              {session.title || 'New Conversation'}
+                            </p>
+                          )}
+                          <p className="text-xs text-gray-400 mt-1">
+                            {formatDate(session.updated_at)} · {session.message_count} messages
+                          </p>
+                        </div>
+                      </button>
+
+                      {/* Action buttons */}
+                      <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                        {editingId === session.id ? (
+                          <>
+                            <button
+                              onClick={(e) => handleSaveEdit(session.id, e)}
+                              className="p-1 hover:bg-green-600 rounded text-green-400 hover:text-white"
+                              title="Save"
+                            >
+                              <Check size={14} />
+                            </button>
+                            <button
+                              onClick={handleCancelEdit}
+                              className="p-1 hover:bg-gray-600 rounded text-gray-400 hover:text-white"
+                              title="Cancel"
+                            >
+                              <X size={14} />
+                            </button>
+                          </>
+                        ) : (
+                          <>
+                            <button
+                              onClick={(e) => handleStartEdit(session.id, session.title, e)}
+                              className="p-1 hover:bg-blue-600 rounded text-gray-400 hover:text-white"
+                              title="Rename"
+                            >
+                              <Edit2 size={14} />
+                            </button>
+                            <button
+                              onClick={(e) => handleDeleteSession(session.id, e)}
+                              className="p-1 hover:bg-red-600 rounded text-gray-400 hover:text-white"
+                              title="Delete"
+                            >
+                              <Trash2 size={14} />
+                            </button>
+                          </>
+                        )}
                       </div>
-                    </button>
+                    </div>
                   ))}
                 </div>
               )}

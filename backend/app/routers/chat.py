@@ -51,3 +51,15 @@ async def delete_history(
     if not success:
         raise HTTPException(status_code=404, detail="Session not found")
     return {"message": "Session deleted successfully"}
+
+
+@router.delete("/message/{message_id}")
+async def delete_message(
+    message_id: str,
+    db: Session = Depends(get_db)
+):
+    """Delete an individual message"""
+    success = chat_service.delete_message(db, message_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="Message not found")
+    return {"message": "Message deleted successfully"}

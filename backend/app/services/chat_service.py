@@ -153,6 +153,28 @@ Here is the question to answer: {question}
         db.commit()
         return True
 
+    def delete_message(self, db: Session, message_id: str) -> bool:
+        """Delete an individual message"""
+        message = db.query(Message).filter(
+            Message.id == message_id
+        ).first()
+
+        if not message:
+            return False
+
+        # Update the session's message count
+        session = db.query(ChatSession).filter(
+            ChatSession.id == message.session_id
+        ).first()
+
+        if session and session.message_count > 0:
+            session.message_count -= 1
+            session.updated_at = datetime.utcnow()
+
+        db.delete(message)
+        db.commit()
+        return True
+
 
 # Create singleton with default model
 chat_service = ChatService()

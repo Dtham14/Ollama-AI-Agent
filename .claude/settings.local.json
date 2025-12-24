@@ -11,7 +11,27 @@
       "Bash(npm install:*)",
       "Bash(npx tailwindcss:*)",
       "Bash(../.venv/Scripts/python.exe:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(npm outdated:*)",
+      "Bash(.venvScriptspython.exe -m pip list --outdated)",
+      "Bash(if [ -d \".venv\" ])",
+      "Bash(then .venv/Scripts/python.exe -m pip list --outdated)",
+      "Bash(elif [ -d \"venv\" ])",
+      "Bash(then venv/Scripts/python.exe -m pip list --outdated)",
+      "Bash(else python -m pip list --outdated)",
+      "Bash(fi)",
+      "Bash(npm update:*)",
+      "Bash(then .venv/Scripts/python.exe -m pip install --upgrade pip)",
+      "Bash(then venv/Scripts/python.exe -m pip install --upgrade pip)",
+      "Bash(else python -m pip install --upgrade pip)",
+      "Bash(then .venv/Scripts/python.exe -m pip install --upgrade fastapi uvicorn langchain langchain-ollama langchain-chroma langchain-community langchain-core langchain-text-splitters pandas pypdf python-docx unstructured python-dotenv pydantic pydantic-settings httpx pytest pytest-asyncio sqlalchemy alembic python-multipart)",
+      "Bash(then .venv/Scripts/python.exe -m pip install --upgrade anyio attrs bcrypt cachetools certifi charset-normalizer click filelock flatbuffers fsspec google-auth googleapis-common-protos greenlet grpcio httptools huggingface-hub idna importlib_metadata jsonschema jsonschema-specifications kubernetes langsmith numpy ollama onnxruntime opentelemetry-api opentelemetry-exporter-otlp-proto-common opentelemetry-exporter-otlp-proto-grpc opentelemetry-proto opentelemetry-sdk orjson posthog protobuf pybase64 referencing requests rich rpds-py tokenizers typer typing_extensions typing-inspection tzdata websocket-client zstandard)",
+      "Bash(then .venv/Scripts/python.exe -m pip freeze)",
+      "Bash(npm audit:*)",
+      "Bash(then .venv/Scripts/python.exe -m pip check)",
+      "Bash(then .venv/Scripts/python.exe -m pip install 'posthog<6.0.0,>=2.4.0')",
+      "Bash(ls:*)",
+      "Bash(curl:*)"
     ]
   }
 }

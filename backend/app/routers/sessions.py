@@ -26,6 +26,10 @@ class CreateSessionRequest(BaseModel):
     model_name: str | None = None
 
 
+class UpdateSessionRequest(BaseModel):
+    title: str
+
+
 @router.post("", response_model=SessionResponse)
 async def create_session(
     request: CreateSessionRequest,
@@ -91,3 +95,44 @@ async def get_session(
         message_count=session.message_count,
         model_name=session.model_name
     )
+
+
+@router.patch("/{session_id}", response_model=SessionResponse)
+async def update_session(
+    session_id: str,
+    request: UpdateSessionRequest,
+    db: Session = Depends(get_db)
+):
+    """Update session title"""
+    session = db.query(ChatSession).filter(ChatSession.id == session_id).first()
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+
+    session.title = request.title
+    db.commit()
+    db.refresh(session)
+
+    return SessionResponse(
+        id=session.id,
+        title=session.title,
+        created_at=session.created_at.isoformat(),
+        updated_at=session.updated_at.isoformat(),
+        message_count=session.message_count,
+        model_name=session.model_name
+    )
+
+
+@router.delete("/{session_id}")
+async def delete_session(
+    session_id: str,
+    db: Session = Depends(get_db)
+):
+    """Delete a session and all its messages"""
+    session = db.query(ChatSession).filter(ChatSession.id == session_id).first()
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+
+    db.delete(session)
+    db.commit()
+
+    return {"message": "Session deleted successfully"}

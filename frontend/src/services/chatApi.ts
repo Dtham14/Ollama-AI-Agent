@@ -17,4 +17,8 @@ export const chatApi = {
   deleteHistory: async (sessionId: string): Promise<void> => {
     await api.delete(`/api/chat/history/${sessionId}`);
   },
+
+  deleteMessage: async (messageId: string): Promise<void> => {
+    await api.delete(`/api/chat/message/${messageId}`);
+  },
 };

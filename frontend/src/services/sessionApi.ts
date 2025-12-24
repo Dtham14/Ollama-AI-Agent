@@ -18,4 +18,13 @@ export const sessionApi = {
     const response = await api.get<Session>(`/api/sessions/${sessionId}`);
     return response.data;
   },
+
+  updateSession: async (sessionId: string, title: string): Promise<Session> => {
+    const response = await api.patch<Session>(`/api/sessions/${sessionId}`, { title });
+    return response.data;
+  },
+
+  deleteSession: async (sessionId: string): Promise<void> => {
+    await api.delete(`/api/sessions/${sessionId}`);
+  },
 };

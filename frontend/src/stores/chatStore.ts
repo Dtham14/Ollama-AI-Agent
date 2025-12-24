@@ -13,6 +13,7 @@ interface ChatState {
   addMessage: (message: Message) => void;
   sendMessage: (content: string, includeSources?: boolean) => Promise<void>;
   loadHistory: (sessionId: string) => Promise<void>;
+  deleteMessage: (messageId: string) => Promise<void>;
   clearMessages: () => void;
   setError: (error: string | null) => void;
 }
@@ -74,6 +75,20 @@ export const useChatStore = create<ChatState>((set, get) => ({
       set({ error: errorMessage });
     } finally {
       set({ isLoading: false });
+    }
+  },
+
+  deleteMessage: async (messageId) => {
+    try {
+      await chatApi.deleteMessage(messageId);
+      // Remove message from local state
+      set((state) => ({
+        messages: state.messages.filter((msg) => msg.id !== messageId),
+      }));
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Failed to delete message';
+      set({ error: errorMessage });
+      throw error;
     }
   },
 
