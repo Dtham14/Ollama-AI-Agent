@@ -1,68 +1,66 @@
-# 🎵 Music Theory Q&A - AI-Powered Learning Assistant
+# 🎵 Classical Music Q&A - AI-Powered Assistant
 
-A full-stack web application that combines **Ollama LLMs** with **RAG (Retrieval Augmented Generation)** to create an intelligent music theory learning assistant. Built with FastAPI, React, and ChromaDB for local, private AI conversations.
+A full-stack web application that combines **HuggingFace LLMs** with **RAG (Retrieval Augmented Generation)** to create an intelligent classical music assistant. Pre-loaded with biographies of 107+ major composers from Medieval to Contemporary periods.
 
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.127.0-009688?logo=fastapi)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React-19.2.0-61DAFB?logo=react)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-3178C6?logo=typescript)](https://www.typescriptlang.org/)
-[![Ollama](https://img.shields.io/badge/Ollama-llama3.2-000000?logo=llama)](https://ollama.ai/)
+[![HuggingFace](https://img.shields.io/badge/HuggingFace-Llama_3.2-FFD21E?logo=huggingface)](https://huggingface.co/)
+[![LangChain](https://img.shields.io/badge/LangChain-1.2.0-00A67E)](https://langchain.com/)
 
 ---
 
 ## ✨ Features
 
-### 💬 **Interactive Chat**
-- Real-time conversations with AI about music theory
-- Context-aware responses using RAG
+### 💬 **Intelligent Chat**
+- Ask questions about classical composers, their lives, works, and contributions
+- Context-aware responses using RAG from 107+ composer biographies
 - Source citations showing which documents informed each answer
 - Persistent chat history across sessions
 
-### 📚 **Document Management**
-- **UI Upload**: Drag-and-drop PDF, DOCX, TXT, MD, CSV files
-- **Bulk Training**: Place PDFs in a folder and process them all at once
-- Automatic text extraction and chunking
-- Vector embeddings with `mxbai-embed-large`
-- ChromaDB for fast semantic search
+### 📚 **Rich Knowledge Base**
+- **Pre-loaded**: 107 composer biographies (5,800+ text chunks)
+- **Periods Covered**: Medieval, Renaissance, Baroque, Classical, Romantic, 20th Century, Contemporary
+- **Major Composers**: Bach, Mozart, Beethoven, Brahms, Stravinsky, and 102 more
+- Scraped from Wikipedia, IMSLP, and AllMusic
+- Automatically embedded and searchable
 
 ### 🗂️ **Session Management**
 - Create, rename, and delete conversations
-- View conversation history
+- Edit conversation titles inline
 - Switch between multiple sessions
 - Automatic session tracking
+- Message deletion for conversation editing
 
-### ✏️ **Message Control**
-- Delete individual messages
-- Edit conversation context
-- Clear entire sessions
-
-### 🎯 **Smart Features**
-- Source attribution with relevance scores
-- Automatic document deduplication
-- Model selection (currently llama3.2)
-- Fully local - no data sent to cloud
+### 🚀 **Free Deployment Ready**
+- Deploy to Render with free tier
+- Uses 100% free HuggingFace Inference API
+- No credit card required
+- Production-ready configuration included
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start (Local Development)
 
 ### Prerequisites
 
-1. **Ollama** - [Install Ollama](https://ollama.com/download)
-2. **Python 3.10+** - For backend
-3. **Node.js 18+** - For frontend
+1. **Python 3.10+**
+2. **Node.js 18+**
+3. **HuggingFace Account** (free) - [Sign up](https://huggingface.co/join)
 
-### Install Ollama Models
+### 1. Get HuggingFace API Token
+
+1. Go to [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
+2. Click "New token"
+3. Name it (e.g., "classical-music-app")
+4. Select "Read" permission
+5. Copy the token (starts with `hf_...`)
+
+### 2. Backend Setup
 
 ```bash
-ollama pull llama3.2
-ollama pull mxbai-embed-large
-```
-
-### Backend Setup
-
-```bash
-# Navigate to backend
-cd backend
+# Clone the repository
+git clone <your-repo-url>
+cd Ollama-AI-Agent/backend
 
 # Create virtual environment
 python -m venv .venv
@@ -71,6 +69,9 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 # Install dependencies
 pip install -r requirements.txt
 
+# Create .env file
+echo "HF_TOKEN=hf_your_token_here" > .env
+
 # Start the server
 python run.py
 ```
@@ -78,7 +79,7 @@ python run.py
 Backend runs at: `http://localhost:8000`
 API docs at: `http://localhost:8000/docs`
 
-### Frontend Setup
+### 3. Frontend Setup
 
 ```bash
 # Navigate to frontend
@@ -95,177 +96,207 @@ Frontend runs at: `http://localhost:5173`
 
 ---
 
-## 📖 Usage Guide
+## 🌐 Deploy to Render (Free)
 
-### Training the AI
-
-#### Method 1: UI Upload (Best for individual documents)
-
-1. Open the app at `http://localhost:5173`
-2. Navigate to **Documents** section
-3. Drag and drop PDF files or click to browse
-4. Files are automatically processed and embedded
-
-#### Method 2: Bulk Folder Training (Best for many documents)
+### Step 1: Push to GitHub
 
 ```bash
-# 1. Place your PDFs in the training folder
-cp your-music-theory-pdfs/*.pdf backend/data/training_docs/
-
-# 2. Run the training script
-cd backend
-python train_from_folder.py
-
-# To force reprocess all files:
-python train_from_folder.py --force
+git add .
+git commit -m "Ready for deployment"
+git push origin main
 ```
 
-**Output Example:**
+### Step 2: Deploy Backend
+
+1. Go to [https://dashboard.render.com](https://dashboard.render.com)
+2. Click **New +** → **Web Service**
+3. Connect your GitHub repository
+4. Configure:
+   - **Name**: `classical-music-backend`
+   - **Region**: Oregon (or closest)
+   - **Branch**: `main`
+   - **Root Directory**: `backend`
+   - **Runtime**: `Python 3`
+   - **Build Command**: `pip install -r requirements.txt && python init_vector_store.py`
+   - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+   - **Instance Type**: `Free`
+
+5. **Add Environment Variables**:
+   - `HF_TOKEN` = `hf_your_actual_token_here`
+   - `DEFAULT_MODEL` = `meta-llama/Llama-3.2-3B-Instruct`
+   - `EMBEDDING_MODEL` = `sentence-transformers/all-MiniLM-L6-v2`
+   - `DEBUG` = `false`
+
+6. Click **Create Web Service**
+7. Wait 5-10 minutes for initial deployment
+8. Copy your backend URL
+
+### Step 3: Deploy Frontend
+
+1. In Render dashboard, click **New +** → **Static Site**
+2. Select same repository
+3. Configure:
+   - **Name**: `classical-music-frontend`
+   - **Branch**: `main`
+   - **Root Directory**: `frontend`
+   - **Build Command**: `npm install && npm run build`
+   - **Publish Directory**: `dist`
+
+4. **Add Environment Variable**:
+   - `VITE_API_URL` = `https://your-backend-url.onrender.com`
+
+5. Click **Create Static Site**
+6. Copy your frontend URL
+
+### Step 4: Update CORS
+
+1. Go back to backend service
+2. Add environment variable:
+   - `CORS_ORIGINS` = `https://your-frontend-url.onrender.com`
+3. Save (backend will auto-redeploy)
+
+### 🎉 Done!
+
+Your app is now live and free to use!
+
+---
+
+## 📖 Usage
+
+### Ask Questions
+
+Simply type questions like:
+
 ```
-============================================================
-Music Theory Knowledge Base - Bulk Training Tool
-============================================================
-
-Training folder: backend/data/training_docs
-
-Found 5 documents to process
-
-Processing: music-fundamentals.pdf
-   [SUCCESS] Processed! (42 chunks)
-Processing: harmony-basics.pdf
-   [SUCCESS] Processed! (35 chunks)
-[SKIP] Already processed: scales-guide.pdf
-
-============================================================
-Summary:
-   Processed: 2
-   Skipped: 3
-   Errors: 0
-   Total: 5
-============================================================
-```
-
-### Managing Conversations
-
-**Create a new chat:**
-- Click "New Chat" button in sidebar
-
-**Rename a conversation:**
-- Hover over conversation → Click edit icon (pencil)
-- Type new name → Press Enter
-
-**Delete a conversation:**
-- Hover over conversation → Click trash icon
-- Confirm deletion
-
-**Delete a message:**
-- Hover over any message → Click trash icon
-- Confirm deletion
-
-### Asking Questions
-
-Simply type your question in the chat:
-
-```
-"What is a perfect fifth interval?"
-"Explain the circle of fifths"
-"What are the notes in a C major scale?"
+"Who was Johann Sebastian Bach?"
+"Tell me about Mozart's compositions"
+"What period did Beethoven compose in?"
+"Who were the major Romantic composers?"
 ```
 
 The AI will:
-1. Search your uploaded documents for relevant content
-2. Generate an answer using that context
-3. Show you which documents were used (with relevance scores)
+1. Search the 107 composer biographies for relevant information
+2. Generate an accurate answer using that context
+3. Show you which composers' biographies were referenced
+
+### Manage Conversations
+
+- **New Chat**: Click "New Chat" in sidebar
+- **Rename**: Click edit icon (✏️) next to session title
+- **Delete Session**: Hover over conversation → trash icon
+- **Delete Message**: Hover over message → trash icon
 
 ---
 
 ## 🏗️ Architecture
 
 ```
-┌─────────────────┐      ┌──────────────┐      ┌─────────────┐
-│  React Frontend │ ───► │ FastAPI      │ ───► │   Ollama    │
-│  (TypeScript)   │ HTTP │ Backend      │ gRPC │  (llama3.2) │
-└─────────────────┘      └──────────────┘      └─────────────┘
+┌─────────────────┐      ┌──────────────┐      ┌─────────────────┐
+│  React Frontend │ ───► │ FastAPI      │ ───► │  HuggingFace    │
+│  (TypeScript)   │ HTTP │ Backend      │ API  │  Inference API  │
+└─────────────────┘      └──────────────┘      └─────────────────┘
                                 │
                                 ▼
                          ┌──────────────┐
                          │  ChromaDB    │
                          │ (Vector DB)  │
+                         │ 5,810 chunks │
                          └──────────────┘
 ```
 
 ### Tech Stack
 
 **Frontend:**
-- React 19.2 + TypeScript
-- Vite for build tooling
-- TailwindCSS for styling
-- Zustand for state management
-- React Query for data fetching
-- Axios for HTTP requests
+- React 19 + TypeScript
+- Vite build tool
+- TailwindCSS
+- Zustand (state management)
+- React Query (data fetching)
 
 **Backend:**
-- FastAPI 0.127 (async Python web framework)
+- FastAPI 0.127 (Python async framework)
 - SQLAlchemy 2.0 (ORM)
 - LangChain 1.2 (LLM orchestration)
-- ChromaDB 1.4 (vector database)
-- Pydantic 2.12 (data validation)
+- ChromaDB (vector database)
+- Pydantic 2.12 (validation)
 
 **AI/ML:**
-- Ollama (local LLM runtime)
-- llama3.2 (language model)
-- mxbai-embed-large (embedding model)
+- HuggingFace Inference API
+- Llama 3.2-3B-Instruct (chat model)
+- sentence-transformers (embeddings)
 
 ---
 
 ## 📁 Project Structure
 
 ```
-Ollama-AI-Agent/
+classical-music-qa/
 ├── backend/
 │   ├── app/
-│   │   ├── models/              # SQLAlchemy models
+│   │   ├── models/              # Database models
 │   │   │   ├── session.py       # Chat sessions
-│   │   │   ├── message.py       # Chat messages
-│   │   │   └── document.py      # Uploaded documents
-│   │   ├── routers/             # API endpoints
-│   │   │   ├── chat.py          # Chat & messages
+│   │   │   ├── message.py       # Messages
+│   │   │   ├── document.py      # Documents
+│   │   │   └── composer.py      # Composers
+│   │   ├── routers/             # API routes
+│   │   │   ├── chat.py          # Chat endpoints
 │   │   │   ├── sessions.py      # Session management
-│   │   │   ├── documents.py     # Document upload
-│   │   │   └── models.py        # LLM model info
+│   │   │   └── documents.py     # Document upload
 │   │   ├── services/            # Business logic
 │   │   │   ├── chat_service.py      # Chat handling
-│   │   │   ├── document_service.py  # Doc processing
-│   │   │   └── vector_service.py    # Embeddings
-│   │   ├── schemas/             # Pydantic schemas
+│   │   │   ├── vector_service.py    # RAG/embeddings
+│   │   │   └── document_service.py  # Doc processing
+│   │   ├── scrapers/            # Web scrapers
+│   │   │   ├── wikipedia_scraper.py
+│   │   │   ├── imslp_scraper.py
+│   │   │   └── allmusic_scraper.py
 │   │   ├── config.py            # Configuration
-│   │   ├── database.py          # DB connection
 │   │   └── main.py              # FastAPI app
 │   ├── data/
+│   │   ├── composer_sources/    # 107 composer biographies
+│   │   │   ├── Baroque/
+│   │   │   ├── Classical/
+│   │   │   ├── Romantic/
+│   │   │   └── ...
 │   │   ├── documents/           # Uploaded files
-│   │   ├── training_docs/       # Bulk training folder
-│   │   ├── chroma_db/           # Vector database
-│   │   └── chat.db              # SQLite database
-│   ├── train_from_folder.py     # Bulk training script
-│   ├── run.py                   # Server entry point
-│   └── requirements.txt
+│   │   ├── chroma_db/           # Vector store
+│   │   └── chat.db              # SQLite DB
+│   ├── init_vector_store.py     # Startup initialization
+│   ├── run.py                   # Dev server
+│   ├── requirements.txt
+│   └── .env.example
 │
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── chat/            # Chat UI
+│   │   │   ├── chat/            # Chat interface
 │   │   │   ├── sessions/        # Sidebar
 │   │   │   └── documents/       # Doc upload
 │   │   ├── services/            # API clients
 │   │   ├── stores/              # State management
-│   │   ├── types/               # TypeScript types
 │   │   └── App.tsx
 │   ├── package.json
-│   └── vite.config.ts
+│   └── .env.example
 │
-├── NEW_FEATURES.md              # Feature documentation
-└── README.md                    # This file
+├── render.yaml                  # Render deployment config
+└── README.md
 ```
+
+---
+
+## 🎼 Composer Knowledge Base
+
+The app includes comprehensive biographies of 107 composers:
+
+**Medieval** (2): Hildegard von Bingen, Guillaume de Machaut
+**Renaissance** (7): Josquin, Palestrina, Byrd, Tallis, Monteverdi, and more
+**Baroque** (12): Bach, Handel, Vivaldi, Purcell, Rameau, and more
+**Classical** (8): Mozart, Beethoven, Haydn, Schubert, and more
+**Romantic** (37): Brahms, Chopin, Wagner, Verdi, Tchaikovsky, and more
+**20th Century** (28): Debussy, Stravinsky, Bartók, Prokofiev, and more
+**Contemporary** (13): Glass, Reich, Pärt, Adams, and more
+
+Total: **5,810 text chunks** embedded and searchable
 
 ---
 
@@ -275,10 +306,9 @@ Ollama-AI-Agent/
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST | `/api/chat/message` | Send a message and get AI response |
-| GET | `/api/chat/history/{session_id}` | Get chat history for session |
-| DELETE | `/api/chat/history/{session_id}` | Delete entire session |
-| DELETE | `/api/chat/message/{message_id}` | Delete individual message |
+| POST | `/api/chat/message` | Send message, get AI response |
+| GET | `/api/chat/history/{session_id}` | Get chat history |
+| DELETE | `/api/chat/message/{message_id}` | Delete message |
 
 ### Sessions
 
@@ -286,174 +316,99 @@ Ollama-AI-Agent/
 |--------|----------|-------------|
 | POST | `/api/sessions` | Create new session |
 | GET | `/api/sessions` | List all sessions |
-| GET | `/api/sessions/{session_id}` | Get session details |
-| PATCH | `/api/sessions/{session_id}` | Update session title |
+| PATCH | `/api/sessions/{session_id}` | Update title |
 | DELETE | `/api/sessions/{session_id}` | Delete session |
 
 ### Documents
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST | `/api/documents/upload` | Upload and process document |
-| GET | `/api/documents` | List all documents |
-| GET | `/api/documents/{doc_id}` | Get document details |
+| POST | `/api/documents/upload` | Upload document |
+| GET | `/api/documents` | List documents |
 | DELETE | `/api/documents/{doc_id}` | Delete document |
-| POST | `/api/documents/{doc_id}/reembed` | Reprocess document |
-
-### Models
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/models` | List available Ollama models |
-| GET | `/api/models/current` | Get current model info |
 
 ---
 
 ## ⚙️ Configuration
 
-Edit `backend/app/config.py` or create a `.env` file:
+### Environment Variables
 
-```python
-# Application
-APP_NAME = "Music Theory Q&A"
-DEBUG = True
+**Backend** (`.env`):
+```bash
+# HuggingFace API Token (required)
+HF_TOKEN=hf_your_token_here
+
+# Model Configuration
+DEFAULT_MODEL=meta-llama/Llama-3.2-3B-Instruct
+EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
 
 # Database
-DATABASE_URL = "sqlite:///./data/chat.db"
+DATABASE_URL=sqlite:///./data/chat.db
 
-# Ollama
-OLLAMA_BASE_URL = "http://localhost:11434"
-DEFAULT_MODEL = "llama3.2"
-EMBEDDING_MODEL = "mxbai-embed-large"
+# Application
+DEBUG=false
 
-# Vector Store
-CHROMA_PERSIST_DIR = "./data/chroma_db"
-CHROMA_COLLECTION_NAME = "music-theory-knowledge"
-
-# Documents
-UPLOAD_DIR = "./data/documents"
-MAX_UPLOAD_SIZE = 10485760  # 10MB
-ALLOWED_EXTENSIONS = {".pdf", ".txt", ".csv", ".docx", ".md"}
-
-# RAG
-RETRIEVAL_K = 3  # Number of documents to retrieve
+# CORS (comma-separated)
+CORS_ORIGINS=https://your-frontend-url.onrender.com
 ```
 
----
-
-## 🧪 Testing
-
-### Test Message Deletion
+**Frontend** (`.env`):
 ```bash
-# Create a test message
-curl -X POST http://localhost:8000/api/chat/message \
-  -H "Content-Type: application/json" \
-  -d '{"message":"Test question","include_sources":false}'
-
-# Delete the message (use ID from response)
-curl -X DELETE http://localhost:8000/api/chat/message/{message_id}
-```
-
-### Test Document Training
-```bash
-# Create test document
-echo "Music theory test content" > backend/data/training_docs/test.txt
-
-# Run training
-cd backend
-python train_from_folder.py
-```
-
-### Test Session Management
-```bash
-# List sessions
-curl http://localhost:8000/api/sessions
-
-# Rename a session
-curl -X PATCH http://localhost:8000/api/sessions/{session_id} \
-  -H "Content-Type: application/json" \
-  -d '{"title":"My Music Theory Session"}'
+# Backend API URL
+VITE_API_URL=https://your-backend-url.onrender.com
 ```
 
 ---
 
 ## 🐛 Troubleshooting
 
-### Ollama not responding
+### Backend won't start
 ```bash
-# Check if Ollama is running
-ollama list
+# Check HF_TOKEN is set
+cat backend/.env
 
-# If not running, start it
-ollama serve
-```
-
-### Backend errors
-```bash
-# Check logs in terminal
-# Restart backend
+# Check dependencies
 cd backend
-python run.py
+pip install -r requirements.txt
 ```
 
-### Frontend not updating
-```bash
-# Clear cache and restart
-cd frontend
-rm -rf node_modules/.vite
-npm run dev
-```
+### Frontend shows CORS error
+- Verify `CORS_ORIGINS` in backend includes your frontend URL
+- Restart backend after changing environment variables
 
-### Database issues
-```bash
-# Reset database (WARNING: Deletes all data)
-rm backend/data/chat.db
-rm -rf backend/data/chroma_db
-```
+### Chat returns empty responses
+- Verify HF_TOKEN is valid
+- Check backend logs for API errors
+- Ensure vector store initialized (5,810 chunks)
+
+### Slow first response on Render
+- Free tier spins down after 15 minutes
+- First request has 30-60 second cold start
+- Subsequent requests are fast
 
 ---
 
-## 📝 Development
+## 💰 Cost
 
-### Running Tests
-```bash
-# Backend tests
-cd backend
-pytest
+**100% FREE** when deployed to:
+- Render Free Tier (750 hours/month)
+- HuggingFace Inference API (free tier, rate limited)
 
-# Frontend tests
-cd frontend
-npm test
-```
-
-### Code Style
-```bash
-# Backend (Python)
-cd backend
-black .
-flake8 .
-
-# Frontend (TypeScript)
-cd frontend
-npm run lint
-```
+Perfect for demos, learning, and personal projects!
 
 ---
 
 ## 🗺️ Roadmap
 
-- [x] Chat interface with RAG
-- [x] Document upload and processing
+- [x] 107 composer biographies
+- [x] RAG-powered chat
 - [x] Session management
-- [x] Message deletion
-- [x] Bulk folder training
-- [x] Session renaming
-- [ ] Multi-model support
-- [ ] Advanced RAG strategies
+- [x] HuggingFace deployment
+- [x] Render deployment config
 - [ ] Export conversations
-- [ ] Docker deployment
-- [ ] User authentication
-- [ ] API rate limiting
+- [ ] Additional composers
+- [ ] Multi-language support
+- [ ] Audio examples integration
 
 ---
 
@@ -465,42 +420,28 @@ MIT License - See LICENSE file for details
 
 ## 🙏 Credits
 
-Built with love using:
-- [Ollama](https://ollama.ai/) - Local LLM runtime
-- [FastAPI](https://fastapi.tiangolo.com/) - Modern Python web framework
+Built with:
+- [HuggingFace](https://huggingface.co/) - Free LLM inference
+- [FastAPI](https://fastapi.tiangolo.com/) - Python web framework
 - [LangChain](https://langchain.com/) - LLM orchestration
 - [ChromaDB](https://www.trychroma.com/) - Vector database
 - [React](https://reactjs.org/) - UI framework
-- [Vite](https://vitejs.dev/) - Build tool
+- [Render](https://render.com/) - Free hosting
 
----
-
-## 💡 Tips
-
-1. **Start with small documents** to test the system
-2. **Use descriptive titles** for conversations to stay organized
-3. **Include sources** in responses to verify information
-4. **Regularly backup** your `data/` folder
-5. **Use folder training** for bulk imports of related documents
+Data sources: Wikipedia, IMSLP, AllMusic
 
 ---
 
 ## 🤝 Contributing
 
-Contributions welcome! Please feel free to submit a Pull Request.
+Contributions welcome! Please:
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Open Pull Request
 
 ---
 
-## 📧 Contact
-
-For questions or feedback, please open an issue on GitHub.
-
----
-
-**Happy Learning! 🎵**
+**Enjoy exploring classical music with AI! 🎵**
