@@ -1,0 +1,1074 @@
+{
+  "composers": [
+    {
+      "name": "Hildegard von Bingen",
+      "normalized_name": "Hildegard von Bingen",
+      "birth_year": 1098,
+      "death_year": 1179,
+      "era": "Medieval",
+      "nationality": "German",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Hildegard_of_Bingen",
+      "imslp_url": "https://imslp.org/wiki/Category:Hildegard_von_Bingen"
+    },
+    {
+      "name": "Guillaume de Machaut",
+      "normalized_name": "Machaut, Guillaume de",
+      "birth_year": 1300,
+      "death_year": 1377,
+      "era": "Medieval",
+      "nationality": "French",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Guillaume_de_Machaut",
+      "imslp_url": "https://imslp.org/wiki/Category:Machaut,_Guillaume_de"
+    },
+    {
+      "name": "Giovanni Pierluigi da Palestrina",
+      "normalized_name": "Palestrina, Giovanni Pierluigi da",
+      "birth_year": 1525,
+      "death_year": 1594,
+      "era": "Renaissance",
+      "nationality": "Italian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Giovanni_Pierluigi_da_Palestrina",
+      "imslp_url": "https://imslp.org/wiki/Category:Palestrina,_Giovanni_Pierluigi_da"
+    },
+    {
+      "name": "Josquin des Prez",
+      "normalized_name": "Josquin des Prez",
+      "birth_year": 1450,
+      "death_year": 1521,
+      "era": "Renaissance",
+      "nationality": "Franco-Flemish",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Josquin_des_Prez",
+      "imslp_url": "https://imslp.org/wiki/Category:Josquin_des_Prez"
+    },
+    {
+      "name": "Thomas Tallis",
+      "normalized_name": "Tallis, Thomas",
+      "birth_year": 1505,
+      "death_year": 1585,
+      "era": "Renaissance",
+      "nationality": "English",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Thomas_Tallis",
+      "imslp_url": "https://imslp.org/wiki/Category:Tallis,_Thomas"
+    },
+    {
+      "name": "William Byrd",
+      "normalized_name": "Byrd, William",
+      "birth_year": 1540,
+      "death_year": 1623,
+      "era": "Renaissance",
+      "nationality": "English",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/William_Byrd",
+      "imslp_url": "https://imslp.org/wiki/Category:Byrd,_William"
+    },
+    {
+      "name": "Claudio Monteverdi",
+      "normalized_name": "Monteverdi, Claudio",
+      "birth_year": 1567,
+      "death_year": 1643,
+      "era": "Renaissance",
+      "nationality": "Italian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Claudio_Monteverdi",
+      "imslp_url": "https://imslp.org/wiki/Category:Monteverdi,_Claudio"
+    },
+    {
+      "name": "Johann Sebastian Bach",
+      "normalized_name": "Bach, Johann Sebastian",
+      "birth_year": 1685,
+      "death_year": 1750,
+      "era": "Baroque",
+      "nationality": "German",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Johann_Sebastian_Bach",
+      "imslp_url": "https://imslp.org/wiki/Category:Bach,_Johann_Sebastian"
+    },
+    {
+      "name": "George Frideric Handel",
+      "normalized_name": "Handel, George Frideric",
+      "birth_year": 1685,
+      "death_year": 1759,
+      "era": "Baroque",
+      "nationality": "German-British",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/George_Frideric_Handel",
+      "imslp_url": "https://imslp.org/wiki/Category:Handel,_George_Frideric"
+    },
+    {
+      "name": "Antonio Vivaldi",
+      "normalized_name": "Vivaldi, Antonio",
+      "birth_year": 1678,
+      "death_year": 1741,
+      "era": "Baroque",
+      "nationality": "Italian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Antonio_Vivaldi",
+      "imslp_url": "https://imslp.org/wiki/Category:Vivaldi,_Antonio"
+    },
+    {
+      "name": "Henry Purcell",
+      "normalized_name": "Purcell, Henry",
+      "birth_year": 1659,
+      "death_year": 1695,
+      "era": "Baroque",
+      "nationality": "English",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Henry_Purcell",
+      "imslp_url": "https://imslp.org/wiki/Category:Purcell,_Henry"
+    },
+    {
+      "name": "Arcangelo Corelli",
+      "normalized_name": "Corelli, Arcangelo",
+      "birth_year": 1653,
+      "death_year": 1713,
+      "era": "Baroque",
+      "nationality": "Italian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Arcangelo_Corelli",
+      "imslp_url": "https://imslp.org/wiki/Category:Corelli,_Arcangelo"
+    },
+    {
+      "name": "Domenico Scarlatti",
+      "normalized_name": "Scarlatti, Domenico",
+      "birth_year": 1685,
+      "death_year": 1757,
+      "era": "Baroque",
+      "nationality": "Italian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Domenico_Scarlatti",
+      "imslp_url": "https://imslp.org/wiki/Category:Scarlatti,_Domenico"
+    },
+    {
+      "name": "Jean-Philippe Rameau",
+      "normalized_name": "Rameau, Jean-Philippe",
+      "birth_year": 1683,
+      "death_year": 1764,
+      "era": "Baroque",
+      "nationality": "French",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Jean-Philippe_Rameau",
+      "imslp_url": "https://imslp.org/wiki/Category:Rameau,_Jean-Philippe"
+    },
+    {
+      "name": "Georg Philipp Telemann",
+      "normalized_name": "Telemann, Georg Philipp",
+      "birth_year": 1681,
+      "death_year": 1767,
+      "era": "Baroque",
+      "nationality": "German",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Georg_Philipp_Telemann",
+      "imslp_url": "https://imslp.org/wiki/Category:Telemann,_Georg_Philipp"
+    },
+    {
+      "name": "Wolfgang Amadeus Mozart",
+      "normalized_name": "Mozart, Wolfgang Amadeus",
+      "birth_year": 1756,
+      "death_year": 1791,
+      "era": "Classical",
+      "nationality": "Austrian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Wolfgang_Amadeus_Mozart",
+      "imslp_url": "https://imslp.org/wiki/Category:Mozart,_Wolfgang_Amadeus"
+    },
+    {
+      "name": "Joseph Haydn",
+      "normalized_name": "Haydn, Joseph",
+      "birth_year": 1732,
+      "death_year": 1809,
+      "era": "Classical",
+      "nationality": "Austrian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Joseph_Haydn",
+      "imslp_url": "https://imslp.org/wiki/Category:Haydn,_Joseph"
+    },
+    {
+      "name": "Ludwig van Beethoven",
+      "normalized_name": "Beethoven, Ludwig van",
+      "birth_year": 1770,
+      "death_year": 1827,
+      "era": "Classical",
+      "nationality": "German",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Ludwig_van_Beethoven",
+      "imslp_url": "https://imslp.org/wiki/Category:Beethoven,_Ludwig_van"
+    },
+    {
+      "name": "Franz Schubert",
+      "normalized_name": "Schubert, Franz",
+      "birth_year": 1797,
+      "death_year": 1828,
+      "era": "Classical",
+      "nationality": "Austrian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Franz_Schubert",
+      "imslp_url": "https://imslp.org/wiki/Category:Schubert,_Franz"
+    },
+    {
+      "name": "Christoph Willibald Gluck",
+      "normalized_name": "Gluck, Christoph Willibald",
+      "birth_year": 1714,
+      "death_year": 1787,
+      "era": "Classical",
+      "nationality": "German",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Christoph_Willibald_Gluck",
+      "imslp_url": "https://imslp.org/wiki/Category:Gluck,_Christoph_Willibald"
+    },
+    {
+      "name": "Carl Philipp Emanuel Bach",
+      "normalized_name": "Bach, Carl Philipp Emanuel",
+      "birth_year": 1714,
+      "death_year": 1788,
+      "era": "Classical",
+      "nationality": "German",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach",
+      "imslp_url": "https://imslp.org/wiki/Category:Bach,_Carl_Philipp_Emanuel"
+    },
+    {
+      "name": "Johannes Brahms",
+      "normalized_name": "Brahms, Johannes",
+      "birth_year": 1833,
+      "death_year": 1897,
+      "era": "Romantic",
+      "nationality": "German",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Johannes_Brahms",
+      "imslp_url": "https://imslp.org/wiki/Category:Brahms,_Johannes"
+    },
+    {
+      "name": "Frederic Chopin",
+      "normalized_name": "Chopin, Frederic",
+      "birth_year": 1810,
+      "death_year": 1849,
+      "era": "Romantic",
+      "nationality": "Polish",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Fr%C3%A9d%C3%A9ric_Chopin",
+      "imslp_url": "https://imslp.org/wiki/Category:Chopin,_Frédéric"
+    },
+    {
+      "name": "Franz Liszt",
+      "normalized_name": "Liszt, Franz",
+      "birth_year": 1811,
+      "death_year": 1886,
+      "era": "Romantic",
+      "nationality": "Hungarian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Franz_Liszt",
+      "imslp_url": "https://imslp.org/wiki/Category:Liszt,_Franz"
+    },
+    {
+      "name": "Richard Wagner",
+      "normalized_name": "Wagner, Richard",
+      "birth_year": 1813,
+      "death_year": 1883,
+      "era": "Romantic",
+      "nationality": "German",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Richard_Wagner",
+      "imslp_url": "https://imslp.org/wiki/Category:Wagner,_Richard"
+    },
+    {
+      "name": "Giuseppe Verdi",
+      "normalized_name": "Verdi, Giuseppe",
+      "birth_year": 1813,
+      "death_year": 1901,
+      "era": "Romantic",
+      "nationality": "Italian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Giuseppe_Verdi",
+      "imslp_url": "https://imslp.org/wiki/Category:Verdi,_Giuseppe"
+    },
+    {
+      "name": "Pyotr Ilyich Tchaikovsky",
+      "normalized_name": "Tchaikovsky, Pyotr Ilyich",
+      "birth_year": 1840,
+      "death_year": 1893,
+      "era": "Romantic",
+      "nationality": "Russian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Pyotr_Ilyich_Tchaikovsky",
+      "imslp_url": "https://imslp.org/wiki/Category:Tchaikovsky,_Pyotr"
+    },
+    {
+      "name": "Robert Schumann",
+      "normalized_name": "Schumann, Robert",
+      "birth_year": 1810,
+      "death_year": 1856,
+      "era": "Romantic",
+      "nationality": "German",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Robert_Schumann",
+      "imslp_url": "https://imslp.org/wiki/Category:Schumann,_Robert"
+    },
+    {
+      "name": "Felix Mendelssohn",
+      "normalized_name": "Mendelssohn, Felix",
+      "birth_year": 1809,
+      "death_year": 1847,
+      "era": "Romantic",
+      "nationality": "German",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Felix_Mendelssohn",
+      "imslp_url": "https://imslp.org/wiki/Category:Mendelssohn,_Felix"
+    },
+    {
+      "name": "Antonin Dvorak",
+      "normalized_name": "Dvorak, Antonin",
+      "birth_year": 1841,
+      "death_year": 1904,
+      "era": "Romantic",
+      "nationality": "Czech",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Anton%C3%ADn_Dvo%C5%99%C3%A1k",
+      "imslp_url": "https://imslp.org/wiki/Category:Dvořák,_Antonín"
+    },
+    {
+      "name": "Edvard Grieg",
+      "normalized_name": "Grieg, Edvard",
+      "birth_year": 1843,
+      "death_year": 1907,
+      "era": "Romantic",
+      "nationality": "Norwegian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Edvard_Grieg",
+      "imslp_url": "https://imslp.org/wiki/Category:Grieg,_Edvard"
+    },
+    {
+      "name": "Camille Saint-Saens",
+      "normalized_name": "Saint-Saens, Camille",
+      "birth_year": 1835,
+      "death_year": 1921,
+      "era": "Romantic",
+      "nationality": "French",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Camille_Saint-Sa%C3%ABns",
+      "imslp_url": "https://imslp.org/wiki/Category:Saint-Saëns,_Camille"
+    },
+    {
+      "name": "Giacomo Puccini",
+      "normalized_name": "Puccini, Giacomo",
+      "birth_year": 1858,
+      "death_year": 1924,
+      "era": "Romantic",
+      "nationality": "Italian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Giacomo_Puccini",
+      "imslp_url": "https://imslp.org/wiki/Category:Puccini,_Giacomo"
+    },
+    {
+      "name": "Hector Berlioz",
+      "normalized_name": "Berlioz, Hector",
+      "birth_year": 1803,
+      "death_year": 1869,
+      "era": "Romantic",
+      "nationality": "French",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Hector_Berlioz",
+      "imslp_url": "https://imslp.org/wiki/Category:Berlioz,_Hector"
+    },
+    {
+      "name": "Modest Mussorgsky",
+      "normalized_name": "Mussorgsky, Modest",
+      "birth_year": 1839,
+      "death_year": 1881,
+      "era": "Romantic",
+      "nationality": "Russian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Modest_Mussorgsky",
+      "imslp_url": "https://imslp.org/wiki/Category:Mussorgsky,_Modest"
+    },
+    {
+      "name": "Nikolai Rimsky-Korsakov",
+      "normalized_name": "Rimsky-Korsakov, Nikolai",
+      "birth_year": 1844,
+      "death_year": 1908,
+      "era": "Romantic",
+      "nationality": "Russian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Nikolai_Rimsky-Korsakov",
+      "imslp_url": "https://imslp.org/wiki/Category:Rimsky-Korsakov,_Nikolay"
+    },
+    {
+      "name": "Gustav Mahler",
+      "normalized_name": "Mahler, Gustav",
+      "birth_year": 1860,
+      "death_year": 1911,
+      "era": "Romantic",
+      "nationality": "Austrian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Gustav_Mahler",
+      "imslp_url": "https://imslp.org/wiki/Category:Mahler,_Gustav"
+    },
+    {
+      "name": "Richard Strauss",
+      "normalized_name": "Strauss, Richard",
+      "birth_year": 1864,
+      "death_year": 1949,
+      "era": "Romantic",
+      "nationality": "German",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Richard_Strauss",
+      "imslp_url": "https://imslp.org/wiki/Category:Strauss,_Richard"
+    },
+    {
+      "name": "Sergei Rachmaninoff",
+      "normalized_name": "Rachmaninoff, Sergei",
+      "birth_year": 1873,
+      "death_year": 1943,
+      "era": "Romantic",
+      "nationality": "Russian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Sergei_Rachmaninoff",
+      "imslp_url": "https://imslp.org/wiki/Category:Rachmaninoff,_Sergey"
+    },
+    {
+      "name": "Gabriel Faure",
+      "normalized_name": "Faure, Gabriel",
+      "birth_year": 1845,
+      "death_year": 1924,
+      "era": "Romantic",
+      "nationality": "French",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Gabriel_Faur%C3%A9",
+      "imslp_url": "https://imslp.org/wiki/Category:Fauré,_Gabriel"
+    },
+    {
+      "name": "Jean Sibelius",
+      "normalized_name": "Sibelius, Jean",
+      "birth_year": 1865,
+      "death_year": 1957,
+      "era": "Romantic",
+      "nationality": "Finnish",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Jean_Sibelius",
+      "imslp_url": "https://imslp.org/wiki/Category:Sibelius,_Jean"
+    },
+    {
+      "name": "Claude Debussy",
+      "normalized_name": "Debussy, Claude",
+      "birth_year": 1862,
+      "death_year": 1918,
+      "era": "20th_Century",
+      "nationality": "French",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Claude_Debussy",
+      "imslp_url": "https://imslp.org/wiki/Category:Debussy,_Claude"
+    },
+    {
+      "name": "Maurice Ravel",
+      "normalized_name": "Ravel, Maurice",
+      "birth_year": 1875,
+      "death_year": 1937,
+      "era": "20th_Century",
+      "nationality": "French",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Maurice_Ravel",
+      "imslp_url": "https://imslp.org/wiki/Category:Ravel,_Maurice"
+    },
+    {
+      "name": "Igor Stravinsky",
+      "normalized_name": "Stravinsky, Igor",
+      "birth_year": 1882,
+      "death_year": 1971,
+      "era": "20th_Century",
+      "nationality": "Russian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Igor_Stravinsky",
+      "imslp_url": "https://imslp.org/wiki/Category:Stravinsky,_Igor"
+    },
+    {
+      "name": "Arnold Schoenberg",
+      "normalized_name": "Schoenberg, Arnold",
+      "birth_year": 1874,
+      "death_year": 1951,
+      "era": "20th_Century",
+      "nationality": "Austrian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Arnold_Schoenberg",
+      "imslp_url": "https://imslp.org/wiki/Category:Schoenberg,_Arnold"
+    },
+    {
+      "name": "Bela Bartok",
+      "normalized_name": "Bartok, Bela",
+      "birth_year": 1881,
+      "death_year": 1945,
+      "era": "20th_Century",
+      "nationality": "Hungarian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/B%C3%A9la_Bart%C3%B3k",
+      "imslp_url": "https://imslp.org/wiki/Category:Bartók,_Béla"
+    },
+    {
+      "name": "Dmitri Shostakovich",
+      "normalized_name": "Shostakovich, Dmitri",
+      "birth_year": 1906,
+      "death_year": 1975,
+      "era": "20th_Century",
+      "nationality": "Soviet",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Dmitri_Shostakovich",
+      "imslp_url": "https://imslp.org/wiki/Category:Shostakovich,_Dmitry"
+    },
+    {
+      "name": "Sergei Prokofiev",
+      "normalized_name": "Prokofiev, Sergei",
+      "birth_year": 1891,
+      "death_year": 1953,
+      "era": "20th_Century",
+      "nationality": "Soviet",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Sergei_Prokofiev",
+      "imslp_url": "https://imslp.org/wiki/Category:Prokofiev,_Sergey"
+    },
+    {
+      "name": "Benjamin Britten",
+      "normalized_name": "Britten, Benjamin",
+      "birth_year": 1913,
+      "death_year": 1976,
+      "era": "20th_Century",
+      "nationality": "British",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Benjamin_Britten",
+      "imslp_url": "https://imslp.org/wiki/Category:Britten,_Benjamin"
+    },
+    {
+      "name": "Aaron Copland",
+      "normalized_name": "Copland, Aaron",
+      "birth_year": 1900,
+      "death_year": 1990,
+      "era": "20th_Century",
+      "nationality": "American",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Aaron_Copland",
+      "imslp_url": "https://imslp.org/wiki/Category:Copland,_Aaron"
+    },
+    {
+      "name": "Leonard Bernstein",
+      "normalized_name": "Bernstein, Leonard",
+      "birth_year": 1918,
+      "death_year": 1990,
+      "era": "20th_Century",
+      "nationality": "American",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Leonard_Bernstein",
+      "imslp_url": "https://imslp.org/wiki/Category:Bernstein,_Leonard"
+    },
+    {
+      "name": "Olivier Messiaen",
+      "normalized_name": "Messiaen, Olivier",
+      "birth_year": 1908,
+      "death_year": 1992,
+      "era": "20th_Century",
+      "nationality": "French",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Olivier_Messiaen",
+      "imslp_url": "https://imslp.org/wiki/Category:Messiaen,_Olivier"
+    },
+    {
+      "name": "Samuel Barber",
+      "normalized_name": "Barber, Samuel",
+      "birth_year": 1910,
+      "death_year": 1981,
+      "era": "20th_Century",
+      "nationality": "American",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Samuel_Barber",
+      "imslp_url": "https://imslp.org/wiki/Category:Barber,_Samuel"
+    },
+    {
+      "name": "Alban Berg",
+      "normalized_name": "Berg, Alban",
+      "birth_year": 1885,
+      "death_year": 1935,
+      "era": "20th_Century",
+      "nationality": "Austrian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Alban_Berg",
+      "imslp_url": "https://imslp.org/wiki/Category:Berg,_Alban"
+    },
+    {
+      "name": "Anton Webern",
+      "normalized_name": "Webern, Anton",
+      "birth_year": 1883,
+      "death_year": 1945,
+      "era": "20th_Century",
+      "nationality": "Austrian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Anton_Webern",
+      "imslp_url": "https://imslp.org/wiki/Category:Webern,_Anton"
+    },
+    {
+      "name": "George Gershwin",
+      "normalized_name": "Gershwin, George",
+      "birth_year": 1898,
+      "death_year": 1937,
+      "era": "20th_Century",
+      "nationality": "American",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/George_Gershwin",
+      "imslp_url": "https://imslp.org/wiki/Category:Gershwin,_George"
+    },
+    {
+      "name": "Duke Ellington",
+      "normalized_name": "Ellington, Duke",
+      "birth_year": 1899,
+      "death_year": 1974,
+      "era": "20th_Century",
+      "nationality": "American",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Duke_Ellington",
+      "imslp_url": "https://imslp.org/wiki/Category:Ellington,_Duke"
+    },
+    {
+      "name": "Philip Glass",
+      "normalized_name": "Glass, Philip",
+      "birth_year": 1937,
+      "death_year": null,
+      "era": "Contemporary",
+      "nationality": "American",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Philip_Glass",
+      "imslp_url": "https://imslp.org/wiki/Category:Glass,_Philip"
+    },
+    {
+      "name": "Steve Reich",
+      "normalized_name": "Reich, Steve",
+      "birth_year": 1936,
+      "death_year": null,
+      "era": "Contemporary",
+      "nationality": "American",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Steve_Reich",
+      "imslp_url": "https://imslp.org/wiki/Category:Reich,_Steve"
+    },
+    {
+      "name": "John Adams",
+      "normalized_name": "Adams, John",
+      "birth_year": 1947,
+      "death_year": null,
+      "era": "Contemporary",
+      "nationality": "American",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/John_Adams_(composer)",
+      "imslp_url": "https://imslp.org/wiki/Category:Adams,_John"
+    },
+    {
+      "name": "Arvo Part",
+      "normalized_name": "Part, Arvo",
+      "birth_year": 1935,
+      "death_year": null,
+      "era": "Contemporary",
+      "nationality": "Estonian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Arvo_P%C3%A4rt",
+      "imslp_url": "https://imslp.org/wiki/Category:Pärt,_Arvo"
+    },
+    {
+      "name": "Henryk Gorecki",
+      "normalized_name": "Gorecki, Henryk",
+      "birth_year": 1933,
+      "death_year": 2010,
+      "era": "Contemporary",
+      "nationality": "Polish",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Henryk_G%C3%B3recki",
+      "imslp_url": "https://imslp.org/wiki/Category:Górecki,_Henryk"
+    },
+    {
+      "name": "Gyorgy Ligeti",
+      "normalized_name": "Ligeti, Gyorgy",
+      "birth_year": 1923,
+      "death_year": 2006,
+      "era": "Contemporary",
+      "nationality": "Hungarian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Gy%C3%B6rgy_Ligeti",
+      "imslp_url": "https://imslp.org/wiki/Category:Ligeti,_György"
+    },
+    {
+      "name": "Orlando di Lasso",
+      "normalized_name": "Lasso, Orlando di",
+      "birth_year": 1532,
+      "death_year": 1594,
+      "era": "Renaissance",
+      "nationality": "Franco-Flemish",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Orlande_de_Lassus",
+      "imslp_url": "https://imslp.org/wiki/Category:Lassus,_Orlande_de"
+    },
+    {
+      "name": "Giovanni Gabrieli",
+      "normalized_name": "Gabrieli, Giovanni",
+      "birth_year": 1557,
+      "death_year": 1612,
+      "era": "Renaissance",
+      "nationality": "Italian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Giovanni_Gabrieli",
+      "imslp_url": "https://imslp.org/wiki/Category:Gabrieli,_Giovanni"
+    },
+    {
+      "name": "Francois Couperin",
+      "normalized_name": "Couperin, Francois",
+      "birth_year": 1668,
+      "death_year": 1733,
+      "era": "Baroque",
+      "nationality": "French",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Fran%C3%A7ois_Couperin",
+      "imslp_url": "https://imslp.org/wiki/Category:Couperin,_François"
+    },
+    {
+      "name": "Johann Pachelbel",
+      "normalized_name": "Pachelbel, Johann",
+      "birth_year": 1653,
+      "death_year": 1706,
+      "era": "Baroque",
+      "nationality": "German",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Johann_Pachelbel",
+      "imslp_url": "https://imslp.org/wiki/Category:Pachelbel,_Johann"
+    },
+    {
+      "name": "Alessandro Scarlatti",
+      "normalized_name": "Scarlatti, Alessandro",
+      "birth_year": 1660,
+      "death_year": 1725,
+      "era": "Baroque",
+      "nationality": "Italian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Alessandro_Scarlatti",
+      "imslp_url": "https://imslp.org/wiki/Category:Scarlatti,_Alessandro"
+    },
+    {
+      "name": "Dietrich Buxtehude",
+      "normalized_name": "Buxtehude, Dietrich",
+      "birth_year": 1637,
+      "death_year": 1707,
+      "era": "Baroque",
+      "nationality": "German-Danish",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Dieterich_Buxtehude",
+      "imslp_url": "https://imslp.org/wiki/Category:Buxtehude,_Dieterich"
+    },
+    {
+      "name": "Luigi Boccherini",
+      "normalized_name": "Boccherini, Luigi",
+      "birth_year": 1743,
+      "death_year": 1805,
+      "era": "Classical",
+      "nationality": "Italian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Luigi_Boccherini",
+      "imslp_url": "https://imslp.org/wiki/Category:Boccherini,_Luigi"
+    },
+    {
+      "name": "Muzio Clementi",
+      "normalized_name": "Clementi, Muzio",
+      "birth_year": 1752,
+      "death_year": 1832,
+      "era": "Classical",
+      "nationality": "Italian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Muzio_Clementi",
+      "imslp_url": "https://imslp.org/wiki/Category:Clementi,_Muzio"
+    },
+    {
+      "name": "Carl Maria von Weber",
+      "normalized_name": "Weber, Carl Maria von",
+      "birth_year": 1786,
+      "death_year": 1826,
+      "era": "Romantic",
+      "nationality": "German",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Carl_Maria_von_Weber",
+      "imslp_url": "https://imslp.org/wiki/Category:Weber,_Carl_Maria_von"
+    },
+    {
+      "name": "Niccolo Paganini",
+      "normalized_name": "Paganini, Niccolo",
+      "birth_year": 1782,
+      "death_year": 1840,
+      "era": "Romantic",
+      "nationality": "Italian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Niccol%C3%B2_Paganini",
+      "imslp_url": "https://imslp.org/wiki/Category:Paganini,_Niccolò"
+    },
+    {
+      "name": "Gioachino Rossini",
+      "normalized_name": "Rossini, Gioachino",
+      "birth_year": 1792,
+      "death_year": 1868,
+      "era": "Romantic",
+      "nationality": "Italian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Gioachino_Rossini",
+      "imslp_url": "https://imslp.org/wiki/Category:Rossini,_Gioachino"
+    },
+    {
+      "name": "Gaetano Donizetti",
+      "normalized_name": "Donizetti, Gaetano",
+      "birth_year": 1797,
+      "death_year": 1848,
+      "era": "Romantic",
+      "nationality": "Italian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Gaetano_Donizetti",
+      "imslp_url": "https://imslp.org/wiki/Category:Donizetti,_Gaetano"
+    },
+    {
+      "name": "Vincenzo Bellini",
+      "normalized_name": "Bellini, Vincenzo",
+      "birth_year": 1801,
+      "death_year": 1835,
+      "era": "Romantic",
+      "nationality": "Italian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Vincenzo_Bellini",
+      "imslp_url": "https://imslp.org/wiki/Category:Bellini,_Vincenzo"
+    },
+    {
+      "name": "Cesar Franck",
+      "normalized_name": "Franck, Cesar",
+      "birth_year": 1822,
+      "death_year": 1890,
+      "era": "Romantic",
+      "nationality": "Belgian-French",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/C%C3%A9sar_Franck",
+      "imslp_url": "https://imslp.org/wiki/Category:Franck,_César"
+    },
+    {
+      "name": "Anton Bruckner",
+      "normalized_name": "Bruckner, Anton",
+      "birth_year": 1824,
+      "death_year": 1896,
+      "era": "Romantic",
+      "nationality": "Austrian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Anton_Bruckner",
+      "imslp_url": "https://imslp.org/wiki/Category:Bruckner,_Anton"
+    },
+    {
+      "name": "Bedrich Smetana",
+      "normalized_name": "Smetana, Bedrich",
+      "birth_year": 1824,
+      "death_year": 1884,
+      "era": "Romantic",
+      "nationality": "Czech",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Bed%C5%99ich_Smetana",
+      "imslp_url": "https://imslp.org/wiki/Category:Smetana,_Bedřich"
+    },
+    {
+      "name": "Alexander Borodin",
+      "normalized_name": "Borodin, Alexander",
+      "birth_year": 1833,
+      "death_year": 1887,
+      "era": "Romantic",
+      "nationality": "Russian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Alexander_Borodin",
+      "imslp_url": "https://imslp.org/wiki/Category:Borodin,_Aleksandr"
+    },
+    {
+      "name": "Max Bruch",
+      "normalized_name": "Bruch, Max",
+      "birth_year": 1838,
+      "death_year": 1920,
+      "era": "Romantic",
+      "nationality": "German",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Max_Bruch",
+      "imslp_url": "https://imslp.org/wiki/Category:Bruch,_Max"
+    },
+    {
+      "name": "Emmanuel Chabrier",
+      "normalized_name": "Chabrier, Emmanuel",
+      "birth_year": 1841,
+      "death_year": 1894,
+      "era": "Romantic",
+      "nationality": "French",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Emmanuel_Chabrier",
+      "imslp_url": "https://imslp.org/wiki/Category:Chabrier,_Emmanuel"
+    },
+    {
+      "name": "Jules Massenet",
+      "normalized_name": "Massenet, Jules",
+      "birth_year": 1842,
+      "death_year": 1912,
+      "era": "Romantic",
+      "nationality": "French",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Jules_Massenet",
+      "imslp_url": "https://imslp.org/wiki/Category:Massenet,_Jules"
+    },
+    {
+      "name": "Leos Janacek",
+      "normalized_name": "Janacek, Leos",
+      "birth_year": 1854,
+      "death_year": 1928,
+      "era": "Romantic",
+      "nationality": "Czech",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Leo%C5%A1_Jan%C3%A1%C4%8Dek",
+      "imslp_url": "https://imslp.org/wiki/Category:Janáček,_Leoš"
+    },
+    {
+      "name": "Edward Elgar",
+      "normalized_name": "Elgar, Edward",
+      "birth_year": 1857,
+      "death_year": 1934,
+      "era": "Romantic",
+      "nationality": "British",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Edward_Elgar",
+      "imslp_url": "https://imslp.org/wiki/Category:Elgar,_Edward"
+    },
+    {
+      "name": "Ruggero Leoncavallo",
+      "normalized_name": "Leoncavallo, Ruggero",
+      "birth_year": 1857,
+      "death_year": 1919,
+      "era": "Romantic",
+      "nationality": "Italian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Ruggero_Leoncavallo",
+      "imslp_url": "https://imslp.org/wiki/Category:Leoncavallo,_Ruggero"
+    },
+    {
+      "name": "Giacomo Meyerbeer",
+      "normalized_name": "Meyerbeer, Giacomo",
+      "birth_year": 1791,
+      "death_year": 1864,
+      "era": "Romantic",
+      "nationality": "German",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Giacomo_Meyerbeer",
+      "imslp_url": "https://imslp.org/wiki/Category:Meyerbeer,_Giacomo"
+    },
+    {
+      "name": "Alexander Scriabin",
+      "normalized_name": "Scriabin, Alexander",
+      "birth_year": 1872,
+      "death_year": 1915,
+      "era": "20th_Century",
+      "nationality": "Russian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Alexander_Scriabin",
+      "imslp_url": "https://imslp.org/wiki/Category:Scriabin,_Aleksandr"
+    },
+    {
+      "name": "Ralph Vaughan Williams",
+      "normalized_name": "Vaughan Williams, Ralph",
+      "birth_year": 1872,
+      "death_year": 1958,
+      "era": "20th_Century",
+      "nationality": "British",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Ralph_Vaughan_Williams",
+      "imslp_url": "https://imslp.org/wiki/Category:Vaughan_Williams,_Ralph"
+    },
+    {
+      "name": "Gustav Holst",
+      "normalized_name": "Holst, Gustav",
+      "birth_year": 1874,
+      "death_year": 1934,
+      "era": "20th_Century",
+      "nationality": "British",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Gustav_Holst",
+      "imslp_url": "https://imslp.org/wiki/Category:Holst,_Gustav"
+    },
+    {
+      "name": "Charles Ives",
+      "normalized_name": "Ives, Charles",
+      "birth_year": 1874,
+      "death_year": 1954,
+      "era": "20th_Century",
+      "nationality": "American",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Charles_Ives",
+      "imslp_url": "https://imslp.org/wiki/Category:Ives,_Charles"
+    },
+    {
+      "name": "Manuel de Falla",
+      "normalized_name": "Falla, Manuel de",
+      "birth_year": 1876,
+      "death_year": 1946,
+      "era": "20th_Century",
+      "nationality": "Spanish",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Manuel_de_Falla",
+      "imslp_url": "https://imslp.org/wiki/Category:Falla,_Manuel_de"
+    },
+    {
+      "name": "Ottorino Respighi",
+      "normalized_name": "Respighi, Ottorino",
+      "birth_year": 1879,
+      "death_year": 1936,
+      "era": "20th_Century",
+      "nationality": "Italian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Ottorino_Respighi",
+      "imslp_url": "https://imslp.org/wiki/Category:Respighi,_Ottorino"
+    },
+    {
+      "name": "Carl Orff",
+      "normalized_name": "Orff, Carl",
+      "birth_year": 1895,
+      "death_year": 1982,
+      "era": "20th_Century",
+      "nationality": "German",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Carl_Orff",
+      "imslp_url": "https://imslp.org/wiki/Category:Orff,_Carl"
+    },
+    {
+      "name": "Paul Hindemith",
+      "normalized_name": "Hindemith, Paul",
+      "birth_year": 1895,
+      "death_year": 1963,
+      "era": "20th_Century",
+      "nationality": "German",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Paul_Hindemith",
+      "imslp_url": "https://imslp.org/wiki/Category:Hindemith,_Paul"
+    },
+    {
+      "name": "Francis Poulenc",
+      "normalized_name": "Poulenc, Francis",
+      "birth_year": 1899,
+      "death_year": 1963,
+      "era": "20th_Century",
+      "nationality": "French",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Francis_Poulenc",
+      "imslp_url": "https://imslp.org/wiki/Category:Poulenc,_Francis"
+    },
+    {
+      "name": "Kurt Weill",
+      "normalized_name": "Weill, Kurt",
+      "birth_year": 1900,
+      "death_year": 1950,
+      "era": "20th_Century",
+      "nationality": "German-American",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Kurt_Weill",
+      "imslp_url": "https://imslp.org/wiki/Category:Weill,_Kurt"
+    },
+    {
+      "name": "Aram Khachaturian",
+      "normalized_name": "Khachaturian, Aram",
+      "birth_year": 1903,
+      "death_year": 1978,
+      "era": "20th_Century",
+      "nationality": "Soviet-Armenian",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Aram_Khachaturian",
+      "imslp_url": "https://imslp.org/wiki/Category:Khachaturian,_Aram"
+    },
+    {
+      "name": "John Cage",
+      "normalized_name": "Cage, John",
+      "birth_year": 1912,
+      "death_year": 1992,
+      "era": "20th_Century",
+      "nationality": "American",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/John_Cage",
+      "imslp_url": "https://imslp.org/wiki/Category:Cage,_John"
+    },
+    {
+      "name": "Witold Lutoslawski",
+      "normalized_name": "Lutoslawski, Witold",
+      "birth_year": 1913,
+      "death_year": 1994,
+      "era": "20th_Century",
+      "nationality": "Polish",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Witold_Lutos%C5%82awski",
+      "imslp_url": "https://imslp.org/wiki/Category:Lutosławski,_Witold"
+    },
+    {
+      "name": "Pierre Boulez",
+      "normalized_name": "Boulez, Pierre",
+      "birth_year": 1925,
+      "death_year": 2016,
+      "era": "Contemporary",
+      "nationality": "French",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Pierre_Boulez",
+      "imslp_url": "https://imslp.org/wiki/Category:Boulez,_Pierre"
+    },
+    {
+      "name": "Karlheinz Stockhausen",
+      "normalized_name": "Stockhausen, Karlheinz",
+      "birth_year": 1928,
+      "death_year": 2007,
+      "era": "Contemporary",
+      "nationality": "German",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Karlheinz_Stockhausen",
+      "imslp_url": "https://imslp.org/wiki/Category:Stockhausen,_Karlheinz"
+    },
+    {
+      "name": "Krzysztof Penderecki",
+      "normalized_name": "Penderecki, Krzysztof",
+      "birth_year": 1933,
+      "death_year": 2020,
+      "era": "Contemporary",
+      "nationality": "Polish",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Krzysztof_Penderecki",
+      "imslp_url": "https://imslp.org/wiki/Category:Penderecki,_Krzysztof"
+    },
+    {
+      "name": "Terry Riley",
+      "normalized_name": "Riley, Terry",
+      "birth_year": 1935,
+      "death_year": null,
+      "era": "Contemporary",
+      "nationality": "American",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Terry_Riley",
+      "imslp_url": "https://imslp.org/wiki/Category:Riley,_Terry"
+    },
+    {
+      "name": "Tan Dun",
+      "normalized_name": "Tan Dun",
+      "birth_year": 1957,
+      "death_year": null,
+      "era": "Contemporary",
+      "nationality": "Chinese-American",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Tan_Dun",
+      "imslp_url": "https://imslp.org/wiki/Category:Tan,_Dun"
+    },
+    {
+      "name": "Thomas Ades",
+      "normalized_name": "Ades, Thomas",
+      "birth_year": 1971,
+      "death_year": null,
+      "era": "Contemporary",
+      "nationality": "British",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Thomas_Ad%C3%A8s",
+      "imslp_url": "https://imslp.org/wiki/Category:Adès,_Thomas"
+    },
+    {
+      "name": "Kaija Saariaho",
+      "normalized_name": "Saariaho, Kaija",
+      "birth_year": 1952,
+      "death_year": 2023,
+      "era": "Contemporary",
+      "nationality": "Finnish-French",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Kaija_Saariaho",
+      "imslp_url": "https://imslp.org/wiki/Category:Saariaho,_Kaija"
+    }
+  ]
+}

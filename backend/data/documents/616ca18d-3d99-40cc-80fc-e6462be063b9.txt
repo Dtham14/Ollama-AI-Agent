@@ -1,0 +1,39 @@
+Music Theory Test Document
+
+This is a test document to demonstrate the folder-based training feature.
+
+# Intervals
+
+An interval is the distance between two pitches. Intervals are fundamental to understanding harmony and melody in music.
+
+Common intervals include:
+- Perfect Unison: Same note
+- Minor Second: One half step
+- Major Second: Two half steps (whole step)
+- Minor Third: Three half steps
+- Major Third: Four half steps
+- Perfect Fourth: Five half steps
+- Perfect Fifth: Seven half steps
+- Octave: Twelve half steps
+
+# Circle of Fifths
+
+The circle of fifths is a visual representation of the relationships among the 12 tones of the chromatic scale. It shows the number of sharps or flats in each key signature.
+
+Moving clockwise adds sharps:
+C (no sharps) → G (1 sharp) → D (2 sharps) → A (3 sharps) → E (4 sharps)
+
+Moving counter-clockwise adds flats:
+C (no flats) → F (1 flat) → Bb (2 flats) → Eb (3 flats) → Ab (4 flats)
+
+# Time Signatures
+
+Time signatures indicate how many beats are in each measure and which note value gets one beat.
+
+Common time signatures:
+- 4/4: Four quarter notes per measure (most common)
+- 3/4: Three quarter notes per measure (waltz time)
+- 6/8: Six eighth notes per measure (compound meter)
+- 2/4: Two quarter notes per measure (march time)
+
+This information will be used to train the AI assistant.
