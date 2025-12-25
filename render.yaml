@@ -1,0 +1,38 @@
+services:
+  # Backend API
+  - type: web
+    name: classical-music-backend
+    runtime: python
+    region: oregon
+    plan: free
+    branch: main
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt && python init_vector_store.py
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: HF_TOKEN
+        sync: false  # You'll set this manually in Render dashboard
+      - key: DEFAULT_MODEL
+        value: meta-llama/Llama-3.2-3B-Instruct
+      - key: EMBEDDING_MODEL
+        value: sentence-transformers/all-MiniLM-L6-v2
+      - key: DEBUG
+        value: false
+      - key: DATABASE_URL
+        value: sqlite:///./data/chat.db
+      - key: CORS_ORIGINS
+        sync: false  # Will be set to frontend URL after frontend deploys
+
+  # Frontend
+  - type: web
+    name: classical-music-frontend
+    runtime: node
+    region: oregon
+    plan: free
+    branch: main
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false  # Will be set to backend URL

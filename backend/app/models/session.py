@@ -3,6 +3,7 @@ from sqlalchemy.orm import relationship
 from datetime import datetime
 import uuid
 from ..database import Base
+from ..config import settings
 
 
 class Session(Base):
@@ -13,7 +14,7 @@ class Session(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     message_count = Column(Integer, default=0)
-    model_name = Column(String, default="llama3.2")
+    model_name = Column(String, default=settings.DEFAULT_MODEL)
 
     # Relationship to messages
     messages = relationship("Message", back_populates="session", cascade="all, delete-orphan")

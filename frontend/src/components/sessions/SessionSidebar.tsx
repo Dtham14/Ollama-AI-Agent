@@ -15,10 +15,35 @@ export const SessionSidebar: React.FC = () => {
   }, [loadSessions]);
 
   const handleNewChat = async () => {
+    // Check if current session has unsaved messages
+    const { messages, currentSessionId } = useChatStore.getState();
+
+    if (messages.length > 0 && !currentSessionId) {
+      const confirmSwitch = confirm(
+        'You have unsaved messages in the current chat. Starting a new chat will discard them. Continue?'
+      );
+      if (!confirmSwitch) {
+        return;
+      }
+    }
+
     clearMessages();
+    setCurrentSession(null);
   };
 
   const handleSelectSession = async (sessionId: string) => {
+    // Check if current session has unsaved messages
+    const { messages, currentSessionId } = useChatStore.getState();
+
+    if (messages.length > 0 && !currentSessionId && sessionId !== currentSessionId) {
+      const confirmSwitch = confirm(
+        'You have unsaved messages in the current chat. Switching to another chat will discard them. Continue?'
+      );
+      if (!confirmSwitch) {
+        return;
+      }
+    }
+
     await loadHistory(sessionId);
   };
 
@@ -197,7 +222,7 @@ export const SessionSidebar: React.FC = () => {
             {/* Footer */}
             <div className="p-4 border-t border-gray-700">
               <p className="text-xs text-gray-400 text-center">
-                Model: llama3.2
+                Model: Llama 3.2 (HuggingFace)
               </p>
             </div>
           </div>

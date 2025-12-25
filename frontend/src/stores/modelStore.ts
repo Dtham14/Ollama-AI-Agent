@@ -15,7 +15,7 @@ interface ModelState {
 
 export const useModelStore = create<ModelState>((set) => ({
   models: [],
-  currentModel: 'llama3.2',
+  currentModel: 'meta-llama/Llama-3.2-3B-Instruct',
   isLoading: false,
   error: null,
 

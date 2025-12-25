@@ -38,7 +38,7 @@ async def create_session(
     """Create a new chat session"""
     new_session = ChatSession(
         title=request.title,
-        model_name=request.model_name or "llama3.2"
+        model_name=request.model_name or settings.DEFAULT_MODEL
     )
     db.add(new_session)
     db.commit()

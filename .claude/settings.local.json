@@ -32,7 +32,15 @@
       "Bash(then .venv/Scripts/python.exe -m pip install 'posthog<6.0.0,>=2.4.0')",
       "Bash(ls:*)",
       "Bash(curl:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(dir:*)",
+      "Bash(.venvScriptspython.exe scrape_composers.py scrape --name \"Johann Sebastian Bach\")",
+      "Bash(.venv/Scripts/python.exe:*)",
+      "Bash(for dir in */)",
+      "Bash(for dir in 20th_Century Baroque Classical Contemporary Medieval Renaissance Romantic)",
+      "Bash(ollama serve:*)",
+      "Bash(.venvScriptspython.exe check_vector_store.py)",
+      "Bash(pip install:*)"
     ]
   }
 }

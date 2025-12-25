@@ -1,4 +1,4 @@
-from langchain_ollama.llms import OllamaLLM
+from langchain_huggingface import HuggingFaceEndpoint
 from langchain_core.prompts import ChatPromptTemplate
 from typing import Optional, List
 from sqlalchemy.orm import Session
@@ -16,16 +16,27 @@ class ChatService:
 
     def __init__(self, model_name: str = None):
         self.model_name = model_name or settings.DEFAULT_MODEL
-        self.model = OllamaLLM(
-            model=self.model_name,
-            base_url=settings.OLLAMA_BASE_URL
+
+        if not settings.HF_TOKEN:
+            raise ValueError("HF_TOKEN environment variable is required")
+
+        self.model = HuggingFaceEndpoint(
+            repo_id=self.model_name,
+            huggingfacehub_api_token=settings.HF_TOKEN,
+            temperature=0.7,
+            max_new_tokens=512
         )
 
-        # Prompt template from original main.py
+        # Prompt template for classical music Q&A
         self.template = """
-You are an expert in answering questions about Music Theory.
-Here are some facts: {facts}
-Here is the question to answer: {question}
+You are an expert in answering questions about Classical Music, including composers, their lives, works, musical periods, and styles.
+Use the provided context to give accurate, detailed answers. If the context doesn't contain enough information, say so honestly.
+
+Context: {facts}
+
+Question: {question}
+
+Answer:
 """
         self.prompt = ChatPromptTemplate.from_template(self.template)
         self.chain = self.prompt | self.model

@@ -27,10 +27,10 @@ export const ChatHistory: React.FC<ChatHistoryProps> = ({ messages, isLoading })
         <div className="flex items-center justify-center h-full text-gray-500">
           <div className="text-center">
             <h3 className="text-lg font-semibold mb-2">
-              Welcome to Music Theory Q&A
+              Welcome to Classical Music Q&A
             </h3>
             <p className="text-sm">
-              Ask me anything about music theory, especially Chopin's techniques!
+              Ask me about classical composers, their lives, works, and contributions to music!
             </p>
           </div>
         </div>

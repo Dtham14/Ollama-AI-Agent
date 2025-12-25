@@ -47,7 +47,7 @@ export const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled }) => {
           value={input}
           onChange={handleInput}
           onKeyDown={handleKeyDown}
-          placeholder="Ask a question about music theory..."
+          placeholder="Ask a question about classical music."
           disabled={disabled}
           rows={1}
           className={cn(

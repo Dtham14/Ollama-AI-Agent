@@ -1,4 +1,4 @@
-from langchain_ollama import OllamaEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 from langchain_core.documents import Document as LangChainDocument
 from typing import List, Optional
@@ -12,9 +12,11 @@ class VectorService:
     """Vector store service for document embedding and retrieval"""
 
     def __init__(self):
-        self.embeddings = OllamaEmbeddings(
-            model=settings.EMBEDDING_MODEL,
-            base_url=settings.OLLAMA_BASE_URL
+        # Use HuggingFace embeddings (free, runs locally in container)
+        self.embeddings = HuggingFaceEmbeddings(
+            model_name=settings.EMBEDDING_MODEL,
+            model_kwargs={'device': 'cpu'},
+            encode_kwargs={'normalize_embeddings': True}
         )
         self.persist_directory = settings.CHROMA_PERSIST_DIR
         self.collection_name = settings.CHROMA_COLLECTION_NAME
