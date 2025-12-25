@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 
 from .config import settings
 from .database import init_db
-from .routers import chat, models, sessions, documents
+from .routers import chat, sessions, documents
 
 
 @asynccontextmanager
@@ -35,7 +35,6 @@ app.add_middleware(
 
 # Include routers
 app.include_router(chat.router)
-app.include_router(models.router)
 app.include_router(sessions.router)
 app.include_router(documents.router)
 

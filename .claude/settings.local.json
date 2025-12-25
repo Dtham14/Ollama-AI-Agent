@@ -40,7 +40,8 @@
       "Bash(for dir in 20th_Century Baroque Classical Contemporary Medieval Renaissance Romantic)",
       "Bash(ollama serve:*)",
       "Bash(.venvScriptspython.exe check_vector_store.py)",
-      "Bash(pip install:*)"
+      "Bash(pip install:*)",
+      "Bash(npm run build:*)"
     ]
   }
 }

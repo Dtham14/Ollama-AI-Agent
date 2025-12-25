@@ -7,7 +7,7 @@ export const SessionSidebar: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(true);
   const [editingId, setEditingId] = React.useState<string | null>(null);
   const [editTitle, setEditTitle] = React.useState('');
-  const { sessions, loadSessions, createSession, updateSession, deleteSession } = useSessionStore();
+  const { sessions, loadSessions, updateSession, deleteSession } = useSessionStore();
   const { currentSessionId, loadHistory, clearMessages, setCurrentSession } = useChatStore();
 
   React.useEffect(() => {

@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "index.py"
+    }
+  ],
+  "env": {
+    "HF_TOKEN": "@hf_token",
+    "DEFAULT_MODEL": "meta-llama/Llama-3.2-3B-Instruct",
+    "EMBEDDING_MODEL": "sentence-transformers/all-MiniLM-L6-v2",
+    "DEBUG": "false"
+  },
+  "build": {
+    "env": {
+      "PYTHONPATH": "$PYTHONPATH:."
+    }
+  },
+  "functions": {
+    "index.py": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  }
+}

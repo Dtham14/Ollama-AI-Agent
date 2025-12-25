@@ -60,7 +60,7 @@ A full-stack web application that combines **HuggingFace LLMs** with **RAG (Retr
 ```bash
 # Clone the repository
 git clone <your-repo-url>
-cd Ollama-AI-Agent/backend
+cd classical-music-qa/backend
 
 # Create virtual environment
 python -m venv .venv
@@ -96,68 +96,57 @@ Frontend runs at: `http://localhost:5173`
 
 ---
 
-## 🌐 Deploy to Render (Free)
+## 🌐 Deployment Options (100% Free)
 
-### Step 1: Push to GitHub
+### Option 1: Vercel + Render (Recommended ⭐)
+- **Frontend**: Vercel (fastest, best CDN)
+- **Backend**: Render (supports FastAPI)
+- **Best Performance**: Global CDN + optimized edge network
 
-```bash
-git add .
-git commit -m "Ready for deployment"
-git push origin main
-```
+### Option 2: Both on Render
+- **Frontend**: Render Static Site
+- **Backend**: Render Web Service
+- **Simpler Setup**: Single platform
 
-### Step 2: Deploy Backend
+---
 
-1. Go to [https://dashboard.render.com](https://dashboard.render.com)
-2. Click **New +** → **Web Service**
-3. Connect your GitHub repository
-4. Configure:
-   - **Name**: `classical-music-backend`
-   - **Region**: Oregon (or closest)
-   - **Branch**: `main`
-   - **Root Directory**: `backend`
-   - **Runtime**: `Python 3`
-   - **Build Command**: `pip install -r requirements.txt && python init_vector_store.py`
-   - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-   - **Instance Type**: `Free`
+## 📘 Quick Deployment Guide
 
-5. **Add Environment Variables**:
-   - `HF_TOKEN` = `hf_your_actual_token_here`
-   - `DEFAULT_MODEL` = `meta-llama/Llama-3.2-3B-Instruct`
-   - `EMBEDDING_MODEL` = `sentence-transformers/all-MiniLM-L6-v2`
-   - `DEBUG` = `false`
+### Vercel + Render (Recommended)
 
-6. Click **Create Web Service**
-7. Wait 5-10 minutes for initial deployment
-8. Copy your backend URL
+**1. Deploy Backend to Render:**
+- Create Web Service with `backend` directory
+- Add `HF_TOKEN` environment variable
+- Build: `pip install -r requirements.txt && python init_vector_store.py`
+- Start: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
 
-### Step 3: Deploy Frontend
+**2. Deploy Frontend to Vercel:**
+- Import repository to Vercel
+- Set root directory to `frontend`
+- Add environment variable: `VITE_API_URL` = your Render backend URL
 
-1. In Render dashboard, click **New +** → **Static Site**
-2. Select same repository
-3. Configure:
-   - **Name**: `classical-music-frontend`
-   - **Branch**: `main`
-   - **Root Directory**: `frontend`
-   - **Build Command**: `npm install && npm run build`
-   - **Publish Directory**: `dist`
+**3. Update CORS:**
+- Add Vercel URL to backend's `CORS_ORIGINS` environment variable
 
-4. **Add Environment Variable**:
-   - `VITE_API_URL` = `https://your-backend-url.onrender.com`
+### 📖 Detailed Instructions
 
-5. Click **Create Static Site**
-6. Copy your frontend URL
+See **[DEPLOYMENT.md](./DEPLOYMENT.md)** for complete step-by-step guide including:
+- Environment variable setup
+- Troubleshooting tips
+- Custom domain configuration
+- Monitoring and logs
 
-### Step 4: Update CORS
+---
 
-1. Go back to backend service
-2. Add environment variable:
-   - `CORS_ORIGINS` = `https://your-frontend-url.onrender.com`
-3. Save (backend will auto-redeploy)
+## 💰 Free Tier Limits
 
-### 🎉 Done!
+| Platform | Cost | Limits |
+|----------|------|--------|
+| **Vercel** | Free | 100GB bandwidth, unlimited requests |
+| **Render** | Free | 750 hours/month, spins down after 15min inactivity |
+| **HuggingFace** | Free | Rate limited (generous for personal use) |
 
-Your app is now live and free to use!
+Perfect for demos, portfolios, and personal projects!
 
 ---
 
