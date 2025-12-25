@@ -1,0 +1,74 @@
+// Prisma schema for Classical Music Q&A
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Session {
+  id            String    @id @default(uuid())
+  title         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  messageCount  Int       @default(0)
+  modelName     String    @default("meta-llama/Llama-3.2-3B-Instruct")
+
+  messages      Message[]
+
+  @@map("sessions")
+}
+
+model Message {
+  id          String    @id @default(uuid())
+  sessionId   String
+  role        String    // 'user' or 'assistant'
+  content     String
+  sources     String?   // JSON string of source citations
+  createdAt   DateTime  @default(now())
+
+  session     Session   @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@map("messages")
+  @@index([sessionId])
+}
+
+model Document {
+  id              String    @id @default(uuid())
+  filename        String
+  fileType        String
+  fileSize        Int
+  uploadedAt      DateTime  @default(now())
+  processedAt     DateTime?
+  status          String    @default("pending")
+  category        String?
+  tags            String?   // JSON array as string
+  description     String?
+  chunkCount      Int       @default(0)
+
+  @@map("documents")
+}
+
+model Composer {
+  id                String    @id @default(uuid())
+  name              String    @unique
+  birthYear         Int?
+  deathYear         Int?
+  era               String?
+  nationality       String?
+  wikipediaScraped  Boolean   @default(false)
+  imslpScraped      Boolean   @default(false)
+  allmusicScraped   Boolean   @default(false)
+  status            String    @default("pending")
+  outputFilePath    String?
+  outputFileSize    Int?
+  errorMessage      String?
+  scrapedAt         DateTime?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  @@map("composers")
+}
