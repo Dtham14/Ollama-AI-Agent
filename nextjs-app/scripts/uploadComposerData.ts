@@ -28,7 +28,19 @@ async function generateEmbedding(text: string, retries = 3): Promise<number[]> {
         model: 'sentence-transformers/all-MiniLM-L6-v2',
         inputs: text,
       })
-      return Array.isArray(embedding) ? embedding : [embedding]
+
+      // Handle different possible return types from HuggingFace
+      if (Array.isArray(embedding)) {
+        // If it's a 2D array (batch), take the first element
+        if (Array.isArray(embedding[0])) {
+          return embedding[0] as number[]
+        }
+        // If it's already a 1D array of numbers
+        return embedding as number[]
+      }
+
+      // If it's a single number, wrap it in an array
+      return [embedding as number]
     } catch (error: any) {
       const isLastAttempt = attempt === retries - 1
 
