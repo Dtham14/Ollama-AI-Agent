@@ -1,11 +1,12 @@
 # 🎵 Classical Music Q&A - AI-Powered Assistant
 
-A full-stack web application that combines **HuggingFace LLMs** with **RAG (Retrieval Augmented Generation)** to create an intelligent classical music assistant. Pre-loaded with biographies of 107+ major composers from Medieval to Contemporary periods.
+A production-ready Next.js application that combines **HuggingFace LLMs** with **RAG (Retrieval Augmented Generation)** to create an intelligent classical music assistant. Pre-loaded with biographies of 107+ major composers from Medieval to Contemporary periods.
 
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.127.0-009688?logo=fastapi)](https://fastapi.tiangolo.com/)
-[![React](https://img.shields.io/badge/React-19.2.0-61DAFB?logo=react)](https://reactjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 [![HuggingFace](https://img.shields.io/badge/HuggingFace-Llama_3.2-FFD21E?logo=huggingface)](https://huggingface.co/)
-[![LangChain](https://img.shields.io/badge/LangChain-1.2.0-00A67E)](https://langchain.com/)
+[![Pinecone](https://img.shields.io/badge/Pinecone-Vector_DB-00D4FF)](https://www.pinecone.io/)
+[![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000000?logo=vercel)](https://vercel.com/)
 
 ---
 
@@ -18,24 +19,25 @@ A full-stack web application that combines **HuggingFace LLMs** with **RAG (Retr
 - Persistent chat history across sessions
 
 ### 📚 **Rich Knowledge Base**
-- **Pre-loaded**: 107 composer biographies (5,800+ text chunks)
+- **Pre-loaded**: 107 composer biographies (5,194 vectors)
 - **Periods Covered**: Medieval, Renaissance, Baroque, Classical, Romantic, 20th Century, Contemporary
 - **Major Composers**: Bach, Mozart, Beethoven, Brahms, Stravinsky, and 102 more
 - Scraped from Wikipedia, IMSLP, and AllMusic
-- Automatically embedded and searchable
+- Automatically embedded and searchable via Pinecone
 
 ### 🗂️ **Session Management**
 - Create, rename, and delete conversations
 - Edit conversation titles inline
 - Switch between multiple sessions
-- Automatic session tracking
+- Automatic session tracking in PostgreSQL
 - Message deletion for conversation editing
 
-### 🚀 **Free Deployment Ready**
-- Deploy to Render with free tier
-- Uses 100% free HuggingFace Inference API
-- No credit card required
-- Production-ready configuration included
+### 🚀 **Production Deployment**
+- Deployed on Vercel with edge optimization
+- Neon PostgreSQL serverless database
+- Pinecone cloud vector database
+- 100% free HuggingFace Inference API
+- No credit card required for development
 
 ---
 
@@ -43,137 +45,115 @@ A full-stack web application that combines **HuggingFace LLMs** with **RAG (Retr
 
 ### Prerequisites
 
-1. **Python 3.10+**
-2. **Node.js 18+**
-3. **HuggingFace Account** (free) - [Sign up](https://huggingface.co/join)
+1. **Node.js 18+**
+2. **HuggingFace Account** (free) - [Sign up](https://huggingface.co/join)
+3. **Pinecone Account** (free) - [Sign up](https://www.pinecone.io/)
 
-### 1. Get HuggingFace API Token
+### 1. Get API Tokens
 
+**HuggingFace Token:**
 1. Go to [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
 2. Click "New token"
 3. Name it (e.g., "classical-music-app")
 4. Select "Read" permission
 5. Copy the token (starts with `hf_...`)
 
-### 2. Backend Setup
+**Pinecone API Key:**
+1. Go to [https://app.pinecone.io/](https://app.pinecone.io/)
+2. Create a new project or use existing
+3. Go to "API Keys" and copy your API key
+4. Create an index named `classical-music` with dimension `384` (for sentence-transformers/all-MiniLM-L6-v2)
+
+### 2. Next.js App Setup
 
 ```bash
 # Clone the repository
 git clone <your-repo-url>
-cd classical-music-qa/backend
-
-# Create virtual environment
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+cd Ollama-AI-Agent/nextjs-app
 
 # Install dependencies
-pip install -r requirements.txt
+npm install --legacy-peer-deps
 
 # Create .env file
-echo "HF_TOKEN=hf_your_token_here" > .env
+cat > .env << EOF
+DATABASE_URL="file:./dev.db"
+HF_TOKEN=hf_your_token_here
+PINECONE_API_KEY=pcsk_your_api_key_here
+PINECONE_INDEX_NAME=classical-music
+DEFAULT_MODEL=meta-llama/Llama-3.2-3B-Instruct
+EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+EOF
 
-# Start the server
-python run.py
-```
+# Initialize database
+npx prisma generate
+npx prisma db push
 
-Backend runs at: `http://localhost:8000`
-API docs at: `http://localhost:8000/docs`
-
-### 3. Frontend Setup
-
-```bash
-# Navigate to frontend
-cd frontend
-
-# Install dependencies
-npm install
+# Upload composer data to Pinecone (one-time setup)
+npx tsx scripts/uploadComposerData.ts
 
 # Start dev server
 npm run dev
 ```
 
-Frontend runs at: `http://localhost:5173`
+App runs at: `http://localhost:3000`
 
 ---
 
-## 🌐 Deployment Options (100% Free)
+## 🌐 Deployment to Vercel (100% Free)
 
-### Option 1: Vercel + Render (Recommended ⭐)
-- **Frontend**: Vercel (fastest, best CDN)
-- **Backend**: Render (supports FastAPI)
-- **Best Performance**: Global CDN + optimized edge network
+### Prerequisites
+- GitHub account
+- Vercel account (sign up at [vercel.com](https://vercel.com))
+- Pinecone account with classical-music index created
+- Neon account (or other serverless PostgreSQL provider)
 
-### Option 2: Both on Render
-- **Frontend**: Render Static Site
-- **Backend**: Render Web Service
-- **Simpler Setup**: Single platform
+### Step-by-Step Deployment
 
----
-
-## 📘 Quick Deployment Guide
-
-### Vercel + Render (Recommended)
-
-**1. Deploy Backend to Render:**
-- Create Web Service with `backend` directory
-- Add `HF_TOKEN` environment variable
-- Build: `pip install -r requirements.txt && python init_vector_store.py`
-- Start: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-
-**2. Deploy Frontend to Vercel:**
-- Import repository to Vercel
-- Set root directory to `frontend`
-- Add environment variable: `VITE_API_URL` = your Render backend URL
-
-**3. Update CORS:**
-- Add Vercel URL to backend's `CORS_ORIGINS` environment variable
-
-### 📖 Detailed Instructions
-
-See **[DEPLOYMENT.md](./DEPLOYMENT.md)** for complete step-by-step guide including:
-- Environment variable setup
-- Troubleshooting tips
-- Custom domain configuration
-- Monitoring and logs
-
----
-
-## 💰 Free Tier Limits
-
-| Platform | Cost | Limits |
-|----------|------|--------|
-| **Vercel** | Free | 100GB bandwidth, unlimited requests |
-| **Render** | Free | 750 hours/month, spins down after 15min inactivity |
-| **HuggingFace** | Free | Rate limited (generous for personal use) |
-
-Perfect for demos, portfolios, and personal projects!
-
----
-
-## 📖 Usage
-
-### Ask Questions
-
-Simply type questions like:
-
-```
-"Who was Johann Sebastian Bach?"
-"Tell me about Mozart's compositions"
-"What period did Beethoven compose in?"
-"Who were the major Romantic composers?"
+**1. Push to GitHub:**
+```bash
+git add .
+git commit -m "Prepare for deployment"
+git push origin main
 ```
 
-The AI will:
-1. Search the 107 composer biographies for relevant information
-2. Generate an accurate answer using that context
-3. Show you which composers' biographies were referenced
+**2. Deploy to Vercel:**
+- Go to [vercel.com](https://vercel.com) and log in
+- Click "Add New Project"
+- Import your GitHub repository
+- **Set Root Directory** to `nextjs-app`
+- Click "Deploy"
 
-### Manage Conversations
+**3. Add Database (Neon):**
+- In your Vercel project dashboard, go to "Storage"
+- Click "Create Database"
+- Select **Neon - Serverless Postgres**
+- Leave "Custom Prefix" blank
+- Click "Create"
+- This automatically adds `POSTGRES_PRISMA_URL` environment variable
 
-- **New Chat**: Click "New Chat" in sidebar
-- **Rename**: Click edit icon (✏️) next to session title
-- **Delete Session**: Hover over conversation → trash icon
-- **Delete Message**: Hover over message → trash icon
+**4. Add Environment Variables:**
+In your Vercel project settings, add:
+```bash
+HF_TOKEN=hf_your_token_here
+PINECONE_API_KEY=pcsk_your_api_key_here
+PINECONE_INDEX_NAME=classical-music
+DEFAULT_MODEL=meta-llama/Llama-3.2-3B-Instruct
+EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+```
+
+**5. Upload Data to Pinecone:**
+```bash
+# From your local machine (one-time setup)
+cd nextjs-app
+npx tsx scripts/uploadComposerData.ts
+```
+
+**6. Redeploy:**
+- Go to Vercel dashboard → Deployments
+- Click "Redeploy" on latest deployment
+- Database tables will be created automatically
+
+That's it! Your app is now live on Vercel.
 
 ---
 
@@ -181,93 +161,86 @@ The AI will:
 
 ```
 ┌─────────────────┐      ┌──────────────┐      ┌─────────────────┐
-│  React Frontend │ ───► │ FastAPI      │ ───► │  HuggingFace    │
-│  (TypeScript)   │ HTTP │ Backend      │ API  │  Inference API  │
+│  Next.js 15     │ ───► │ HuggingFace  │ ───► │  Llama 3.2-3B   │
+│  Frontend + API │ API  │ Inference    │      │  Chat Model     │
 └─────────────────┘      └──────────────┘      └─────────────────┘
-                                │
-                                ▼
-                         ┌──────────────┐
-                         │  ChromaDB    │
-                         │ (Vector DB)  │
-                         │ 5,810 chunks │
-                         └──────────────┘
+         │
+         ├────────────► ┌──────────────┐
+         │              │  Pinecone    │
+         │              │ Vector DB    │
+         │              │ 5,194 vectors│
+         │              └──────────────┘
+         │
+         └────────────► ┌──────────────┐
+                        │  Neon/       │
+                        │  PostgreSQL  │
+                        │  (Sessions)  │
+                        └──────────────┘
 ```
 
 ### Tech Stack
 
-**Frontend:**
-- React 19 + TypeScript
-- Vite build tool
-- TailwindCSS
-- Zustand (state management)
-- React Query (data fetching)
+**Framework:**
+- Next.js 15 (App Router)
+- TypeScript 5.0
+- React 19
+- TailwindCSS 3
 
-**Backend:**
-- FastAPI 0.127 (Python async framework)
-- SQLAlchemy 2.0 (ORM)
-- LangChain 1.2 (LLM orchestration)
-- ChromaDB (vector database)
-- Pydantic 2.12 (validation)
+**Database & Storage:**
+- Prisma ORM 6.19.1
+- Neon PostgreSQL (serverless)
+- Pinecone (cloud vector database)
 
 **AI/ML:**
 - HuggingFace Inference API
 - Llama 3.2-3B-Instruct (chat model)
-- sentence-transformers (embeddings)
+- sentence-transformers/all-MiniLM-L6-v2 (embeddings)
+
+**Deployment:**
+- Vercel (Next.js hosting)
+- Neon (PostgreSQL)
+- Pinecone (vector storage)
 
 ---
 
 ## 📁 Project Structure
 
 ```
-classical-music-qa/
-├── backend/
+Ollama-AI-Agent/
+├── nextjs-app/                    # Next.js application
 │   ├── app/
-│   │   ├── models/              # Database models
-│   │   │   ├── session.py       # Chat sessions
-│   │   │   ├── message.py       # Messages
-│   │   │   ├── document.py      # Documents
-│   │   │   └── composer.py      # Composers
-│   │   ├── routers/             # API routes
-│   │   │   ├── chat.py          # Chat endpoints
-│   │   │   ├── sessions.py      # Session management
-│   │   │   └── documents.py     # Document upload
-│   │   ├── services/            # Business logic
-│   │   │   ├── chat_service.py      # Chat handling
-│   │   │   ├── vector_service.py    # RAG/embeddings
-│   │   │   └── document_service.py  # Doc processing
-│   │   ├── scrapers/            # Web scrapers
-│   │   │   ├── wikipedia_scraper.py
-│   │   │   ├── imslp_scraper.py
-│   │   │   └── allmusic_scraper.py
-│   │   ├── config.py            # Configuration
-│   │   └── main.py              # FastAPI app
-│   ├── data/
-│   │   ├── composer_sources/    # 107 composer biographies
-│   │   │   ├── Baroque/
-│   │   │   ├── Classical/
-│   │   │   ├── Romantic/
-│   │   │   └── ...
-│   │   ├── documents/           # Uploaded files
-│   │   ├── chroma_db/           # Vector store
-│   │   └── chat.db              # SQLite DB
-│   ├── init_vector_store.py     # Startup initialization
-│   ├── run.py                   # Dev server
-│   ├── requirements.txt
-│   └── .env.example
-│
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── chat/            # Chat interface
-│   │   │   ├── sessions/        # Sidebar
-│   │   │   └── documents/       # Doc upload
-│   │   ├── services/            # API clients
-│   │   ├── stores/              # State management
-│   │   └── App.tsx
+│   │   ├── api/                   # API routes
+│   │   │   ├── chat/
+│   │   │   │   └── message/       # Chat endpoint
+│   │   │   ├── sessions/          # Session management
+│   │   │   └── documents/         # Document upload
+│   │   ├── page.tsx               # Main chat interface
+│   │   ├── layout.tsx             # Root layout
+│   │   └── globals.css            # Global styles
+│   ├── components/
+│   │   ├── chat/                  # Chat components
+│   │   ├── sessions/              # Session sidebar
+│   │   └── ui/                    # Reusable UI components
+│   ├── lib/
+│   │   ├── prisma.ts              # Prisma client
+│   │   ├── vectorSearch.ts        # Pinecone RAG logic
+│   │   └── utils.ts               # Utilities
+│   ├── prisma/
+│   │   └── schema.prisma          # Database schema
+│   ├── scripts/
+│   │   └── uploadComposerData.ts  # Pinecone upload script
+│   ├── vercel.json                # Vercel build config
 │   ├── package.json
 │   └── .env.example
 │
-├── render.yaml                  # Render deployment config
+├── backend/                       # Legacy backend (reference only)
+│   └── data/
+│       └── composer_sources/      # 107 composer biographies
+│           ├── Baroque/
+│           ├── Classical/
+│           ├── Romantic/
+│           └── ...
+│
 └── README.md
 ```
 
@@ -285,36 +258,35 @@ The app includes comprehensive biographies of 107 composers:
 **20th Century** (28): Debussy, Stravinsky, Bartók, Prokofiev, and more
 **Contemporary** (13): Glass, Reich, Pärt, Adams, and more
 
-Total: **5,810 text chunks** embedded and searchable
+Total: **5,194 vectors** embedded in Pinecone
 
 ---
 
-## 🔌 API Endpoints
+## 🔌 API Routes
 
 ### Chat
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | POST | `/api/chat/message` | Send message, get AI response |
-| GET | `/api/chat/history/{session_id}` | Get chat history |
-| DELETE | `/api/chat/message/{message_id}` | Delete message |
+| DELETE | `/api/chat/message/[id]` | Delete message |
 
 ### Sessions
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST | `/api/sessions` | Create new session |
 | GET | `/api/sessions` | List all sessions |
-| PATCH | `/api/sessions/{session_id}` | Update title |
-| DELETE | `/api/sessions/{session_id}` | Delete session |
+| POST | `/api/sessions` | Create new session |
+| PATCH | `/api/sessions/[id]` | Update session title |
+| DELETE | `/api/sessions/[id]` | Delete session |
 
 ### Documents
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST | `/api/documents/upload` | Upload document |
 | GET | `/api/documents` | List documents |
-| DELETE | `/api/documents/{doc_id}` | Delete document |
+| POST | `/api/documents` | Upload document |
+| DELETE | `/api/documents/[id]` | Delete document |
 
 ---
 
@@ -322,82 +294,134 @@ Total: **5,810 text chunks** embedded and searchable
 
 ### Environment Variables
 
-**Backend** (`.env`):
+**Production (Vercel):**
 ```bash
 # HuggingFace API Token (required)
 HF_TOKEN=hf_your_token_here
+
+# Pinecone Configuration (required)
+PINECONE_API_KEY=pcsk_your_key_here
+PINECONE_INDEX_NAME=classical-music
 
 # Model Configuration
 DEFAULT_MODEL=meta-llama/Llama-3.2-3B-Instruct
 EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
 
-# Database
-DATABASE_URL=sqlite:///./data/chat.db
-
-# Application
-DEBUG=false
-
-# CORS (comma-separated)
-CORS_ORIGINS=https://your-frontend-url.onrender.com
+# Database (automatically added by Neon integration)
+POSTGRES_PRISMA_URL=postgresql://...
+POSTGRES_URL=postgresql://...
+POSTGRES_URL_NON_POOLING=postgresql://...
 ```
 
-**Frontend** (`.env`):
+**Local Development:**
 ```bash
-# Backend API URL
-VITE_API_URL=https://your-backend-url.onrender.com
+# Use SQLite for local development
+DATABASE_URL="file:./dev.db"
+
+# Same API keys as production
+HF_TOKEN=hf_your_token_here
+PINECONE_API_KEY=pcsk_your_key_here
+PINECONE_INDEX_NAME=classical-music
+DEFAULT_MODEL=meta-llama/Llama-3.2-3B-Instruct
+EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
 ```
+
+---
+
+## 📖 Usage
+
+### Ask Questions
+
+Simply type questions like:
+
+```
+"Who was Johann Sebastian Bach?"
+"Tell me about Mozart's compositions"
+"What period did Beethoven compose in?"
+"Who were the major Romantic composers?"
+```
+
+The AI will:
+1. Generate embeddings for your question
+2. Search Pinecone for relevant composer biographies
+3. Use retrieved context to generate accurate answer
+4. Show you which composers' biographies were referenced
+
+### Manage Conversations
+
+- **New Chat**: Click "New Chat" in sidebar
+- **Rename**: Click edit icon (✏️) next to session title
+- **Delete Session**: Hover over conversation → trash icon
+- **Delete Message**: Hover over message → trash icon
 
 ---
 
 ## 🐛 Troubleshooting
 
-### Backend won't start
+### Database tables not created
 ```bash
-# Check HF_TOKEN is set
-cat backend/.env
+# Run Prisma migrations locally
+cd nextjs-app
+npx prisma db push
 
-# Check dependencies
-cd backend
-pip install -r requirements.txt
+# For Vercel, tables are created automatically on first deploy
+# Check build logs in Vercel dashboard
 ```
 
-### Frontend shows CORS error
-- Verify `CORS_ORIGINS` in backend includes your frontend URL
-- Restart backend after changing environment variables
+### Pinecone returns no results
+```bash
+# Verify data was uploaded
+# Run upload script from local machine
+cd nextjs-app
+npx tsx scripts/uploadComposerData.ts
+
+# Check Pinecone dashboard for vector count (should be ~5,194)
+```
 
 ### Chat returns empty responses
-- Verify HF_TOKEN is valid
-- Check backend logs for API errors
-- Ensure vector store initialized (5,810 chunks)
+- Verify `HF_TOKEN` is valid in environment variables
+- Check Vercel function logs for API errors
+- Ensure Pinecone index has vectors
 
-### Slow first response on Render
-- Free tier spins down after 15 minutes
-- First request has 30-60 second cold start
-- Subsequent requests are fast
+### TypeScript build errors
+```bash
+# Regenerate Prisma client
+npx prisma generate
+
+# Clear Next.js cache
+rm -rf .next
+npm run build
+```
 
 ---
 
-## 💰 Cost
+## 💰 Cost Breakdown
 
-**100% FREE** when deployed to:
-- Render Free Tier (750 hours/month)
-- HuggingFace Inference API (free tier, rate limited)
+| Service | Free Tier | Usage |
+|---------|-----------|-------|
+| **Vercel** | 100GB bandwidth, unlimited deployments | Hosting |
+| **Neon PostgreSQL** | 3GB storage, 0.5GB RAM | Database |
+| **Pinecone** | 1 free index, 100K vectors | Vector search |
+| **HuggingFace** | Rate limited (generous) | LLM inference |
 
-Perfect for demos, learning, and personal projects!
+**Total Cost: $0/month** for personal projects!
 
 ---
 
 ## 🗺️ Roadmap
 
 - [x] 107 composer biographies
-- [x] RAG-powered chat
+- [x] RAG-powered chat with Pinecone
 - [x] Session management
-- [x] HuggingFace deployment
-- [x] Render deployment config
-- [ ] Export conversations
-- [ ] Additional composers
+- [x] HuggingFace LLM integration
+- [x] Next.js migration
+- [x] Vercel deployment
+- [x] PostgreSQL integration
+- [ ] Export conversations to PDF
+- [ ] Additional composers (expand to 200+)
 - [ ] Multi-language support
 - [ ] Audio examples integration
+- [ ] Advanced search filters
 
 ---
 
@@ -410,12 +434,13 @@ MIT License - See LICENSE file for details
 ## 🙏 Credits
 
 Built with:
+- [Next.js](https://nextjs.org/) - React framework
 - [HuggingFace](https://huggingface.co/) - Free LLM inference
-- [FastAPI](https://fastapi.tiangolo.com/) - Python web framework
-- [LangChain](https://langchain.com/) - LLM orchestration
-- [ChromaDB](https://www.trychroma.com/) - Vector database
-- [React](https://reactjs.org/) - UI framework
-- [Render](https://render.com/) - Free hosting
+- [Pinecone](https://www.pinecone.io/) - Vector database
+- [Prisma](https://www.prisma.io/) - Database ORM
+- [Neon](https://neon.tech/) - Serverless PostgreSQL
+- [Vercel](https://vercel.com/) - Deployment platform
+- [TailwindCSS](https://tailwindcss.com/) - Styling
 
 Data sources: Wikipedia, IMSLP, AllMusic
 
