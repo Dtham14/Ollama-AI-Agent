@@ -127,8 +127,8 @@ async function uploadToPinecone(vectors: any[]) {
 async function main() {
   console.log('🎵 Classical Music Data Upload to Pinecone\n')
 
-  // Path to composer sources (in backend directory)
-  const composerSourcesDir = path.join(__dirname, '../../backend/data/composer_sources')
+  // Path to composer sources
+  const composerSourcesDir = path.join(__dirname, '../data/composer_sources')
 
   if (!fs.existsSync(composerSourcesDir)) {
     console.error(`❌ Composer sources directory not found: ${composerSourcesDir}`)
